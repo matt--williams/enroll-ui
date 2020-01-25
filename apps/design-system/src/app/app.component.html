@@ -1,4 +1,21 @@
+<header>
+  <div class="header-container"></div>
+</header>
 <nav>
-  <a routerLink="typography">Typography</a> <a routerLink="spacing">Spacing</a>
+  <ul class="app-navigation nav-container">
+    <li routerLinkActive="active-link" class="app-navigation-list-item">
+      <a class="hbx-link" routerLink="typography">Typography</a>
+    </li>
+    <li routerLinkActive="active-link" class="app-navigation-list-item">
+      <a class="hbx-link" routerLink="spacing">Spacing</a>
+    </li>
+    <li routerLinkActive="active-link" class="app-navigation-list-item">
+      <a class="hbx-link" routerLink="color">Color</a>
+    </li>
+  </ul>
 </nav>
-<router-outlet></router-outlet>
+<main>
+  <div class="main-container">
+    <router-outlet></router-outlet>
+  </div>
+</main>

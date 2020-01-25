@@ -60,6 +60,12 @@
   --green-010: hsl(125 65% 93%);
 
   --text-color: var(--neutral-100);
+  --link-color: var(--blue-080);
+  --link-focus-background-color: var(--yellow-050);
+
+  // The only purple color in the set, used
+  // exclusively for visited links
+  // --link-visited-color: hsl(245 76% 39%);
 }
 
 body {

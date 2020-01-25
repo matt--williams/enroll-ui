@@ -1,0 +1,36 @@
+header {
+  background-color: var(--neutral-010);
+}
+
+[class*='-container'] {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+nav {
+  background-color: var(--neutral-010);
+}
+
+nav > ul {
+  display: flex;
+}
+
+ul > li {
+  padding: 0 var(--s0);
+  height: var(--s3);
+}
+
+ul > li.active-link {
+  border-bottom: 4px solid var(--blue-070);
+}
+
+li > a {
+  font-weight: 700;
+  color: var(--blue-070);
+  text-decoration: none;
+  line-height: var(--s3);
+
+  &:hover:not(:focus) {
+    text-decoration: underline;
+  }
+}
