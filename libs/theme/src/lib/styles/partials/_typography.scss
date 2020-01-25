@@ -74,6 +74,7 @@
   font-size: calc(1rem + var(--viewport-scale));
   --font-family: 'Open Sans', sans-serif;
   --heading-line-height: 1.15;
+  --heading-font-weight: 600;
 }
 
 body {
@@ -85,7 +86,8 @@ h2,
 h3,
 h4 {
   line-height: var(--heading-line-height);
-  margin-bottom: var(--s1);
+  margin-bottom: var(--s0);
+  font-weight: var(--heading-font-weight);
 }
 
 h1 {
