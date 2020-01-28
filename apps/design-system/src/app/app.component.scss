@@ -1,5 +1,12 @@
 header {
-  background-color: var(--neutral-010);
+  background-color: #fff;
+  border-bottom: 10px solid var(--blue-070);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: var(--s3);
 }
 
 [class*='-container'] {
@@ -9,6 +16,10 @@ header {
 
 nav {
   background-color: var(--neutral-010);
+}
+
+.nav-container {
+  margin-left: calc(var(--(s0) * -1));
 }
 
 nav > ul {
@@ -33,4 +44,8 @@ li > a {
   &:hover:not(:focus) {
     text-decoration: underline;
   }
+}
+
+.main-container {
+  padding-top: var(--s1);
 }
