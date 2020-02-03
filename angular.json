@@ -293,37 +293,6 @@
           }
         }
       }
-    },
-    "broker-staff-models": {
-      "projectType": "library",
-      "root": "libs/broker-staff/models",
-      "sourceRoot": "libs/broker-staff/models/src",
-      "prefix": "hbx",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/broker-staff/models/tsconfig.lib.json",
-              "libs/broker-staff/models/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/broker-staff/models/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/broker-staff/models/jest.config.js",
-            "tsConfig": "libs/broker-staff/models/tsconfig.spec.json",
-            "setupFile": "libs/broker-staff/models/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
     }
   },
   "cli": {
