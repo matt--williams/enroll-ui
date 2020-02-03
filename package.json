@@ -11,6 +11,7 @@
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
+    "e2e:admin": "ng e2e --project=admin-e2e -- --watch",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -51,18 +52,22 @@
     "@nrwl/cypress": "8.12.0",
     "@nrwl/jest": "8.12.0",
     "@nrwl/workspace": "8.12.0",
+    "@types/faker": "^4.1.9",
     "@types/jest": "24.0.9",
     "@types/node": "~8.9.4",
+    "@types/uuid": "^3.4.7",
     "codelyzer": "~5.0.1",
     "cypress": "^3.8.2",
     "dotenv": "6.2.0",
     "eslint": "6.1.0",
+    "faker": "Marak/faker.js",
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
     "prettier": "^1.19.1",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "uuid": "^3.4.0"
   }
 }

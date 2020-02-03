@@ -1,10 +1,15 @@
-import { Component } from "@angular/core";
-
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 @Component({
-  selector: "hbx-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'hbx-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = "admin";
+export class AppComponent implements OnInit {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get('/api/v1/people').subscribe();
+    this.http.get('/api/v1/organizations').subscribe();
+  }
 }

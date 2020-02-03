@@ -2,7 +2,7 @@ import { HbxInbox } from 'inbox';
 import { HbxAddress } from 'address';
 import { HbxPhone } from 'phone';
 
-export interface HbxOrganization {
+export interface BenefitSponsorsOrganization {
   _id: string;
   _type: string; // enum?
   entity_kind: string; // enum?
@@ -33,7 +33,7 @@ export interface OrganizationProfile {
   updated_at: string;
   created_at: string;
   office_locations: OfficeLocation[];
-  inbox: HbxInbox[];
+  inbox: HbxInbox;
   primary_broker_role_id: string; // check this
 }
 

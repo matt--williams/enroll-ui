@@ -6,9 +6,13 @@ export interface HbxInbox {
 
 export interface HbxMessage {
   _id: string;
+  sender_id?: string;
+  parent_message_id?: string;
+  from: string;
+  to?: string;
   subject: string;
   body: string;
-  from: string;
   message_read: boolean;
+  folder?: string;
   created_at: string;
 }
