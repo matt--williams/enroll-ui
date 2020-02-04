@@ -1,18 +1,19 @@
 import { WorkflowStateTransition } from 'models/workflowStateTransition';
+import { BrokerRoleState, ProviderKind } from './agencyStaffRole';
 
 export interface ApiBrokerRole {
   _id: string;
   languages_spoken: string[];
   carrier_appointments: CarrierAppointments;
-  provider_kind: string; // enum?
+  provider_kind: ProviderKind;
   npn: string;
   benefit_sponsors_broker_agency_profile_id: string;
   market_kind?: any;
-  aasm_state: string; // enum?
+  aasm_state: BrokerRoleState;
   updated_by_id: string;
   updated_at: string;
   created_at: string;
-  workflow_state_transitions: WorkflowStateTransition[];
+  workflow_state_transitions: WorkflowStateTransition<BrokerRoleState>[];
   reason: string;
   license: boolean;
   training: boolean;

@@ -5,8 +5,11 @@ import { mockInbox } from './inbox.mock';
 import {
   ApiBrokerAgencyStaffRole,
   ApiGeneralAgencyStaffRole,
+  GeneralAgencyStaffRoleState,
+  BrokerAgencyStaffRoleState,
 } from 'models/agencyStaffRole';
 import { mockPersonAddress } from './address.mock';
+import { mockPersonPhone } from './phone.mock';
 
 export function mockBasePerson(): ApiBasePerson {
   const genderNumber = faker.random.number(1);
@@ -36,6 +39,7 @@ export function mockBasePerson(): ApiBasePerson {
     tracking_version: 1,
     emails: [mockEmail()],
     inbox: mockInbox(),
+    phones: [mockPersonPhone()],
   };
 
   return person;
@@ -65,13 +69,13 @@ export function mockGeneralAgencyStaffRole(): ApiGeneralAgencyStaffRole {
   const staffRole: ApiGeneralAgencyStaffRole = {
     _id: faker.random.uuid(),
     npn: faker.random.number({ min: 1111111111, max: 9999999999 }).toString(),
-    aasm_state: 'active',
+    aasm_state: GeneralAgencyStaffRoleState.Active,
     tracking_version: 1,
     workflow_state_transitions: [
       {
         _id: faker.random.uuid(),
-        from_state: 'applicant',
-        to_state: 'active',
+        from_state: GeneralAgencyStaffRoleState.Applicant,
+        to_state: GeneralAgencyStaffRoleState.Active,
         event: 'approve!',
         transition_at: recent,
         created_at: recent,
@@ -90,13 +94,13 @@ export function mockBrokerAgencyStaffRole(): ApiBrokerAgencyStaffRole {
   const staffRole: ApiBrokerAgencyStaffRole = {
     _id: faker.random.uuid(),
     npn: faker.random.number({ min: 1111111111, max: 9999999999 }).toString(),
-    aasm_state: 'active',
+    aasm_state: BrokerAgencyStaffRoleState.Active,
     tracking_version: 1,
     workflow_state_transitions: [
       {
         _id: faker.random.uuid(),
-        from_state: 'broker_agency_pending',
-        to_state: 'active',
+        from_state: BrokerAgencyStaffRoleState.Pending,
+        to_state: BrokerAgencyStaffRoleState.Active,
         event: 'broker_agency_accept!',
         transition_at: recent,
         created_at: recent,

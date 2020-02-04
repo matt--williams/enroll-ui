@@ -6,6 +6,8 @@ import {
   ApiGeneralAgencyStaffRole,
 } from 'models/agencyStaffRole';
 import { ApiBrokerRole } from 'models/brokerRole';
+import { ApiEmail } from './email';
+import { ApiRelationship, GenericRelationship } from './relationship';
 
 export interface ApiBasePerson {
   _id: string;
@@ -24,7 +26,7 @@ export interface ApiBasePerson {
   updated_at: string;
   created_at: string;
   tracking_version: number;
-  person_relationships?: ApiRelationship[];
+  person_relationships?: ApiRelationship<GenericRelationship>[];
   addresses?: ApiPersonAddress[];
   inbox: ApiInbox;
   emails: ApiEmail[];
@@ -33,22 +35,8 @@ export interface ApiBasePerson {
   broker_agency_staff_roles?: ApiBrokerAgencyStaffRole[];
   general_agency_staff_roles?: ApiGeneralAgencyStaffRole[];
   broker_role?: ApiBrokerRole;
-}
-
-export interface ApiRelationship {
-  _id: string;
-  kind: string; // enum?
-  relative_id: string;
-  updated_at: string;
-  created_at: string;
-}
-
-export interface ApiEmail {
-  _id: string;
-  kind: string; // enum?
-  address: string;
-  updated_at: string;
-  created_at: string;
-  tracking_version: number;
-  modifier_id?: any;
+  hbx_staff_role?: any;
+  assister_role?: any;
+  csr_role?: any;
+  consumer_role?: any;
 }
