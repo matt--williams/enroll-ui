@@ -1,5 +1,5 @@
 import * as faker from 'faker/locale/en_US';
-import { ApiEmail } from '../../../../../person';
+import { ApiEmail } from '../../../../../models/person';
 
 export function mockEmail(): ApiEmail {
   const now = new Date();

@@ -1,6 +1,6 @@
-import { ApiInbox } from 'inbox';
-import { ApiAddress } from 'address';
+import { ApiInbox } from 'models/inbox';
 import { ApiPhone } from 'phone';
+import { ApiOfficeAddress } from 'models/address';
 
 export interface ApiBenefitSponsorsOrganization {
   _id: string;
@@ -21,7 +21,7 @@ export interface ApiOrganizationProfile {
   contact_method: string; // enum?
   _type: string; // enum?
   languages_spoken: string[];
-  market_kind: string; // enum?
+  market_kind: MarketKind;
   home_page?: any;
   accept_new_clients: boolean;
   working_hours: boolean;
@@ -40,6 +40,12 @@ export interface ApiOrganizationProfile {
 export interface ApiOfficeLocation {
   _id: string;
   is_primary: boolean;
-  address: ApiAddress;
+  address: ApiOfficeAddress;
   phone: ApiPhone;
+}
+
+export const enum MarketKind {
+  Individual = 'individual',
+  Shop = 'shop',
+  Both = 'both',
 }

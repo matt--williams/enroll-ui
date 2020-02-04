@@ -1,4 +1,4 @@
-import { WorkflowStateTransition } from 'workflowStateTransition';
+import { WorkflowStateTransition } from 'models/workflowStateTransition';
 
 export interface ApiAgencyStaffRole {
   _id: string;

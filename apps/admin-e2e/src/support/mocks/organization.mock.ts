@@ -3,7 +3,8 @@ import {
   ApiBenefitSponsorsOrganization,
   ApiOrganizationProfile,
   ApiOfficeLocation,
-} from '../../../../../benefitSponsorsOrg';
+  MarketKind,
+} from '../../../../../models/benefitSponsorsOrg';
 import { mockInbox } from './inbox.mock';
 import { mockPhone } from './phone.mock';
 import { mockOfficeAddress } from './address.mock';
@@ -43,7 +44,7 @@ export function mockOrgProfile(
     contact_method: 'paper_and_electronic',
     _type: `BenefitSponsors::Organizations::${agencyType}AgencyProfile`,
     languages_spoken: ['en'],
-    market_kind: 'individual',
+    market_kind: MarketKind.Individual,
     accept_new_clients: true,
     working_hours: faker.random.boolean(),
     is_benefit_sponsorship_eligible: true,

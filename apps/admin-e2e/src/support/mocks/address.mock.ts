@@ -5,7 +5,7 @@ import {
   ApiPersonAddress,
   ApiOfficeAddress,
   OfficeAddressKind,
-} from 'address';
+} from 'models/address';
 
 export function mockBaseAddress(): ApiBaseAddress {
   const now = new Date();

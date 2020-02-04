@@ -1,11 +1,11 @@
 import { ApiInbox } from './inbox';
-import { ApiPersonAddress } from 'address';
+import { ApiPersonAddress } from 'models/address';
 import { ApiPhone } from 'phone';
 import {
   ApiBrokerAgencyStaffRole,
   ApiGeneralAgencyStaffRole,
-} from 'agencyStaffRole';
-import { ApiBrokerRole } from 'brokerRole';
+} from 'models/agencyStaffRole';
+import { ApiBrokerRole } from 'models/brokerRole';
 
 export interface ApiBasePerson {
   _id: string;

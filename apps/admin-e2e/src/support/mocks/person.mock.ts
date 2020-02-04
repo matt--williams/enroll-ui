@@ -1,11 +1,11 @@
 import * as faker from 'faker/locale/en_US';
-import { ApiBasePerson } from '../../../../../person';
+import { ApiBasePerson } from '../../../../../models/person';
 import { mockEmail } from './email.mock';
 import { mockInbox } from './inbox.mock';
 import {
   ApiBrokerAgencyStaffRole,
   ApiGeneralAgencyStaffRole,
-} from 'agencyStaffRole';
+} from 'models/agencyStaffRole';
 import { mockPersonAddress } from './address.mock';
 
 export function mockBasePerson(): ApiBasePerson {
