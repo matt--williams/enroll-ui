@@ -1,5 +1,5 @@
 import { ApiInbox } from './inbox';
-import { ApiAddress } from 'address';
+import { ApiPersonAddress } from 'address';
 import { ApiPhone } from 'phone';
 import {
   ApiBrokerAgencyStaffRole,
@@ -25,7 +25,7 @@ export interface ApiBasePerson {
   created_at: string;
   tracking_version: number;
   person_relationships?: ApiRelationship[];
-  addresses?: ApiAddress[];
+  addresses?: ApiPersonAddress[];
   inbox: ApiInbox;
   emails: ApiEmail[];
   phones?: ApiPhone[];

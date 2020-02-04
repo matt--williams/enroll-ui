@@ -5,8 +5,8 @@ import {
   ApiOfficeLocation,
 } from '../../../../../benefitSponsorsOrg';
 import { mockInbox } from './inbox.mock';
-import { mockAddress } from './address.mock';
 import { mockPhone } from './phone.mock';
+import { mockOfficeAddress } from './address.mock';
 
 export function mockGeneralAgency(
   existingId: string = faker.random.uuid()
@@ -63,7 +63,7 @@ export function mockOfficeLocation(): ApiOfficeLocation {
   const officeLocation: ApiOfficeLocation = {
     _id: faker.random.uuid(),
     is_primary: true,
-    address: mockAddress(),
+    address: mockOfficeAddress(),
     phone: mockPhone(),
   };
 
