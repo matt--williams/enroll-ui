@@ -1,9 +1,9 @@
 import * as faker from 'faker/locale/en_US';
-import { HbxBasePerson } from '../../../../../person';
+import { ApiBasePerson } from '../../../../../person';
 import { mockEmail } from './email.mock';
 import { mockInbox } from './inbox.mock';
 
-export function mockPerson(): HbxBasePerson {
+export function mockPerson(): ApiBasePerson {
   const genderNumber = faker.random.number(1);
   const genderString = genderNumber === 0 ? 'male' : 'female';
 
@@ -11,7 +11,7 @@ export function mockPerson(): HbxBasePerson {
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
-  const person: HbxBasePerson = {
+  const person: ApiBasePerson = {
     _id: faker.random.uuid(),
     version: 1,
     is_tobacco_user: 'unknown',

@@ -1,8 +1,8 @@
-import { HbxInbox } from 'inbox';
-import { HbxAddress } from 'address';
-import { HbxPhone } from 'phone';
+import { ApiInbox } from 'inbox';
+import { ApiAddress } from 'address';
+import { ApiPhone } from 'phone';
 
-export interface BenefitSponsorsOrganization {
+export interface ApiBenefitSponsorsOrganization {
   _id: string;
   _type: string; // enum?
   entity_kind: string; // enum?
@@ -13,10 +13,10 @@ export interface BenefitSponsorsOrganization {
   hbx_id: string;
   updated_at: string;
   created_at: string;
-  profiles: OrganizationProfile[];
+  profiles: ApiOrganizationProfile[];
 }
 
-export interface OrganizationProfile {
+export interface ApiOrganizationProfile {
   _id: string;
   contact_method: string; // enum?
   _type: string; // enum?
@@ -32,14 +32,14 @@ export interface OrganizationProfile {
   updated_by_id: string;
   updated_at: string;
   created_at: string;
-  office_locations: OfficeLocation[];
-  inbox: HbxInbox;
+  office_locations: ApiOfficeLocation[];
+  inbox: ApiInbox;
   primary_broker_role_id: string; // check this
 }
 
-export interface OfficeLocation {
+export interface ApiOfficeLocation {
   _id: string;
   is_primary: boolean;
-  address: HbxAddress;
-  phone: HbxPhone;
+  address: ApiAddress;
+  phone: ApiPhone;
 }

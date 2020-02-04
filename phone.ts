@@ -1,4 +1,4 @@
-export interface HbxPhone {
+export interface ApiPhone {
   _id: string;
   kind: string; // enum?
   country_code?: string;

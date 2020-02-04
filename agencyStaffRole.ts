@@ -1,6 +1,6 @@
 import { WorkflowStateTransition } from 'workflowStateTransition';
 
-export interface AgencyStaffRole {
+export interface ApiAgencyStaffRole {
   _id: string;
   npn: string;
   aasm_state: string; // enum;
@@ -9,10 +9,10 @@ export interface AgencyStaffRole {
   workflow_state_transitions: WorkflowStateTransition[];
 }
 
-export interface GeneralAgencyStaffRole extends AgencyStaffRole {
+export interface ApiGeneralAgencyStaffRole extends ApiAgencyStaffRole {
   benefit_sponsors_general_agency_profile_id: string;
 }
 
-export interface BrokerAgencyStaffRole extends AgencyStaffRole {
+export interface ApiBrokerAgencyStaffRole extends ApiAgencyStaffRole {
   benefit_sponsors_broker_agency_profile_id: string;
 }

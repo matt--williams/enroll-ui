@@ -1,7 +1,7 @@
 import * as faker from 'faker/locale/en_US';
-import { HbxPhone } from 'phone';
+import { ApiPhone } from 'phone';
 
-export function mockPhone(): HbxPhone {
+export function mockPhone(): ApiPhone {
   const area_code: string = faker.random
     .number({ min: 111, max: 999 })
     .toString();
@@ -13,7 +13,7 @@ export function mockPhone(): HbxPhone {
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
-  const phone: HbxPhone = {
+  const phone: ApiPhone = {
     _id: faker.random.uuid(),
     kind: 'phone main',
     area_code,

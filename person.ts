@@ -1,10 +1,13 @@
-import { HbxInbox } from './inbox';
-import { HbxAddress } from 'address';
-import { HbxPhone } from 'phone';
-import { BrokerAgencyStaffRole, GeneralAgencyStaffRole } from 'agencyStaffRole';
-import { BrokerRole } from 'brokerRole';
+import { ApiInbox } from './inbox';
+import { ApiAddress } from 'address';
+import { ApiPhone } from 'phone';
+import {
+  ApiBrokerAgencyStaffRole,
+  ApiGeneralAgencyStaffRole,
+} from 'agencyStaffRole';
+import { ApiBrokerRole } from 'brokerRole';
 
-export interface HbxBasePerson {
+export interface ApiBasePerson {
   _id: string;
   version: number;
   is_tobacco_user: string;
@@ -21,18 +24,18 @@ export interface HbxBasePerson {
   updated_at: string;
   created_at: string;
   tracking_version: number;
-  person_relationships?: HbxRelationship[];
-  addresses?: HbxAddress[];
-  inbox: HbxInbox;
-  emails: HbxEmail[];
-  phones?: HbxPhone[];
+  person_relationships?: ApiRelationship[];
+  addresses?: ApiAddress[];
+  inbox: ApiInbox;
+  emails: ApiEmail[];
+  phones?: ApiPhone[];
   user_id?: string;
-  broker_agency_staff_roles?: BrokerAgencyStaffRole[];
-  general_agency_staff_roles?: GeneralAgencyStaffRole[];
-  broker_role?: BrokerRole;
+  broker_agency_staff_roles?: ApiBrokerAgencyStaffRole[];
+  general_agency_staff_roles?: ApiGeneralAgencyStaffRole[];
+  broker_role?: ApiBrokerRole;
 }
 
-export interface HbxRelationship {
+export interface ApiRelationship {
   _id: string;
   kind: string; // enum?
   relative_id: string;
@@ -40,11 +43,12 @@ export interface HbxRelationship {
   created_at: string;
 }
 
-export interface HbxEmail {
+export interface ApiEmail {
   _id: string;
   kind: string; // enum?
   address: string;
   updated_at: string;
   created_at: string;
   tracking_version: number;
+  modifier_id?: any;
 }

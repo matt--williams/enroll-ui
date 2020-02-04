@@ -1,10 +1,10 @@
-export interface HbxInbox {
+export interface ApiInbox {
   _id: string;
   access_key: string;
-  messages?: HbxMessage[];
+  messages?: ApiMessage[];
 }
 
-export interface HbxMessage {
+export interface ApiMessage {
   _id: string;
   sender_id?: string;
   parent_message_id?: string;

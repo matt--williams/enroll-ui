@@ -1,4 +1,4 @@
-export interface HbxAddress {
+export interface ApiAddress {
   _id: string;
   address_1: string;
   address_2?: string;

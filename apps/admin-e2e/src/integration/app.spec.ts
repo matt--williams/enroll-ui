@@ -1,12 +1,12 @@
 import { getGreeting } from '../support/app.po';
 import { mockPerson } from '../support/mocks/person.mock';
-import { mockBenefitSponsorsOrg } from '../support/mocks/organization.mock';
+import { mockGeneralAgency } from '../support/mocks/organization.mock';
 
 describe('admin', () => {
   beforeEach(() => {
     cy.server();
     cy.route('**/people', [mockPerson()]).as('people');
-    cy.route('**/organizations', [mockBenefitSponsorsOrg('Broker')]).as(
+    cy.route('**/organizations', [mockGeneralAgency('Broker')]).as(
       'organizations'
     );
     cy.visit('/');

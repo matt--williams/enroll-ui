@@ -1,12 +1,12 @@
 import * as faker from 'faker/locale/en_US';
-import { HbxEmail } from '../../../../../person';
+import { ApiEmail } from '../../../../../person';
 
-export function mockEmail(): HbxEmail {
+export function mockEmail(): ApiEmail {
   const now = new Date();
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
-  const email: HbxEmail = {
+  const email: ApiEmail = {
     _id: faker.random.uuid(),
     kind: 'work',
     address: faker.internet.email(),

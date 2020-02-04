@@ -1,6 +1,6 @@
 import { WorkflowStateTransition } from 'workflowStateTransition';
 
-export interface BrokerRole {
+export interface ApiBrokerRole {
   _id: string;
   languages_spoken: string[];
   carrier_appointments: CarrierAppointments;

@@ -1,33 +1,30 @@
 import * as faker from 'faker/locale/en_US';
 import {
-  BenefitSponsorsOrganization,
-  OrganizationProfile,
-  OfficeLocation,
+  ApiBenefitSponsorsOrganization,
+  ApiOrganizationProfile,
+  ApiOfficeLocation,
 } from '../../../../../benefitSponsorsOrg';
 import { mockInbox } from './inbox.mock';
 import { mockAddress } from './address.mock';
 import { mockPhone } from './phone.mock';
 
-export function mockBenefitSponsorsOrg(
-  agencyType: 'General' | 'Broker',
+export function mockGeneralAgency(
   existingId: string = faker.random.uuid()
-): BenefitSponsorsOrganization {
-  const now = new Date();
-  const created = faker.date.recent();
-  const updated = faker.date.between(created, now);
+): ApiBenefitSponsorsOrganization {
+  const benefitSponsorsOrg: ApiBenefitSponsorsOrganization = {
+    ...partialBenefitSponsorsOrg(),
+    profiles: [mockOrgProfile(existingId, 'General')],
+  };
 
-  const benefitSponsorsOrg: BenefitSponsorsOrganization = {
-    _id: faker.random.uuid(),
-    _type: 'BenefitSponsors::Organizations::GeneralOrganization',
-    entity_kind: 's_corporation',
-    fein: faker.random.number({ min: 111111111, max: 999999999 }).toString(),
-    dba: faker.company.companyName(),
-    legal_name: faker.company.companyName(),
-    site_id: faker.random.uuid(),
-    hbx_id: faker.random.uuid(),
-    updated_at: updated.toISOString(),
-    created_at: created.toISOString(),
-    profiles: [mockOrgProfile(existingId, agencyType)],
+  return benefitSponsorsOrg;
+}
+
+export function mockBrokerAgency(
+  existingId: string = faker.random.uuid()
+): ApiBenefitSponsorsOrganization {
+  const benefitSponsorsOrg: ApiBenefitSponsorsOrganization = {
+    ...partialBenefitSponsorsOrg(),
+    profiles: [mockOrgProfile(existingId, 'Broker')],
   };
 
   return benefitSponsorsOrg;
@@ -36,12 +33,12 @@ export function mockBenefitSponsorsOrg(
 export function mockOrgProfile(
   id: string,
   agencyType: 'General' | 'Broker'
-): OrganizationProfile {
+): ApiOrganizationProfile {
   const now = new Date();
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
-  const profile: OrganizationProfile = {
+  const profile: ApiOrganizationProfile = {
     _id: id,
     contact_method: 'paper_and_electronic',
     _type: `BenefitSponsors::Organizations::${agencyType}AgencyProfile`,
@@ -62,8 +59,8 @@ export function mockOrgProfile(
   return profile;
 }
 
-export function mockOfficeLocation(): OfficeLocation {
-  const officeLocation: OfficeLocation = {
+export function mockOfficeLocation(): ApiOfficeLocation {
+  const officeLocation: ApiOfficeLocation = {
     _id: faker.random.uuid(),
     is_primary: true,
     address: mockAddress(),
@@ -71,4 +68,28 @@ export function mockOfficeLocation(): OfficeLocation {
   };
 
   return officeLocation;
+}
+
+function partialBenefitSponsorsOrg(): Omit<
+  ApiBenefitSponsorsOrganization,
+  'profiles'
+> {
+  const now = new Date();
+  const created = faker.date.recent();
+  const updated = faker.date.between(created, now);
+
+  const partialOrg: Omit<ApiBenefitSponsorsOrganization, 'profiles'> = {
+    _id: faker.random.uuid(),
+    _type: 'BenefitSponsors::Organizations::GeneralOrganization',
+    entity_kind: 's_corporation',
+    fein: faker.random.number({ min: 111111111, max: 999999999 }).toString(),
+    dba: faker.company.companyName(),
+    legal_name: faker.company.companyName(),
+    site_id: faker.random.uuid(),
+    hbx_id: faker.random.uuid(),
+    updated_at: updated.toISOString(),
+    created_at: created.toISOString(),
+  };
+
+  return partialOrg;
 }

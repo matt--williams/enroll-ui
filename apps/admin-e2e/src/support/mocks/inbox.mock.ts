@@ -1,9 +1,9 @@
-import { HbxInbox, HbxMessage } from '../../../../../inbox';
+import { ApiInbox, ApiMessage } from '../../../../../inbox';
 import * as faker from 'faker/locale/en_US';
 import { v4 as uuid } from 'uuid';
 
-export function mockInbox(): HbxInbox {
-  const inbox: HbxInbox = {
+export function mockInbox(): ApiInbox {
+  const inbox: ApiInbox = {
     _id: uuid(),
     access_key: faker.random.alphaNumeric(),
     messages: [mockMessage(), mockMessage(), mockMessage()],
@@ -12,8 +12,8 @@ export function mockInbox(): HbxInbox {
   return inbox;
 }
 
-export function mockMessage(): HbxMessage {
-  const message: HbxMessage = {
+export function mockMessage(): ApiMessage {
+  const message: ApiMessage = {
     _id: uuid(),
     subject: faker.random.words(3),
     body: faker.random.words(20),
