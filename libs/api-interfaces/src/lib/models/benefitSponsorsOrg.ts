@@ -1,7 +1,7 @@
 import { ApiInbox } from './inbox';
 import { ApiPhone } from './phone';
 import { ApiOfficeAddress } from './address';
-import { ContactMethods } from './contactMethods';
+import { ContactMethod } from './contactMethods';
 
 export interface ApiBenefitSponsorsOrganization {
   _id: string;
@@ -23,7 +23,7 @@ export interface ApiBenefitSponsorsOrganization {
 
 export interface ApiOrganizationProfile {
   _id: string;
-  contact_method: ContactMethods;
+  contact_method: ContactMethod;
   _type: string; // enum?
   languages_spoken: string[];
   market_kind: MarketKind;
