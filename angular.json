@@ -390,6 +390,40 @@
           "styleext": "scss"
         }
       }
+    },
+    "admin-shared-view-models": {
+      "projectType": "library",
+      "root": "libs/admin/shared/view-models",
+      "sourceRoot": "libs/admin/shared/view-models/src",
+      "prefix": "hbx",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/admin/shared/view-models/tsconfig.lib.json",
+              "libs/admin/shared/view-models/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/admin/shared/view-models/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/admin/shared/view-models/jest.config.js",
+            "tsConfig": "libs/admin/shared/view-models/tsconfig.spec.json",
+            "setupFile": "libs/admin/shared/view-models/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

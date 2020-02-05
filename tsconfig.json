@@ -21,7 +21,10 @@
       "@hbx/admin/brokers/data-access": [
         "libs/admin/brokers/data-access/src/index.ts"
       ],
-      "@hbx/admin/brokers/feature": ["libs/admin/brokers/feature/src/index.ts"]
+      "@hbx/admin/brokers/feature": ["libs/admin/brokers/feature/src/index.ts"],
+      "@hbx/admin/shared/view-models": [
+        "libs/admin/shared/view-models/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
