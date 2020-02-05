@@ -6,15 +6,19 @@ import { ContactMethods } from './contactMethods';
 export interface ApiBenefitSponsorsOrganization {
   _id: string;
   _type: string; // enum?
+  agency_id?: any;
   entity_kind: EntityKind;
   fein: string; // also number?
   dba: string;
   legal_name: string;
+  home_page?: any;
   site_id: string;
   hbx_id: string;
   updated_at: string;
   created_at: string;
   profiles: ApiOrganizationProfile[];
+  plan_design_author_ids?: any[];
+  plan_design_subject_ids?: any[];
 }
 
 export interface ApiOrganizationProfile {
