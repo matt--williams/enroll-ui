@@ -6,7 +6,7 @@ import { ContactMethods } from './contactMethods';
 export interface ApiBenefitSponsorsOrganization {
   _id: string;
   _type: string; // enum?
-  entity_kind: EntityKind; // enum?
+  entity_kind: EntityKind;
   fein: string; // also number?
   dba: string;
   legal_name: string;
