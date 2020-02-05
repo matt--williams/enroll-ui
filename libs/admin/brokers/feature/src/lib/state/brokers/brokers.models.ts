@@ -1,4 +1,5 @@
 import { EntityKind } from '@hbx/api-interfaces';
+import { OrganizationProfile } from '@hbx/admin/shared/view-models';
 
 /**
  * Interface for the 'Brokers' data
@@ -19,4 +20,7 @@ export interface BrokersEntity {
   createdAt: Date;
 
   profiles: OrganizationProfile;
+
+  planDesignAuthorIds?: any[];
+  planDesignSubjectIds?: any[];
 }

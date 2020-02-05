@@ -1,1 +1,1 @@
-export * from './lib/admin-shared-view-models.module';
+export * from './lib/models';
