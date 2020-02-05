@@ -1,4 +1,4 @@
-import { WorkflowStateTransition } from 'models/workflowStateTransition';
+import { WorkflowStateTransition } from './workflowStateTransition';
 import { BrokerRoleState, ProviderKind } from './agencyStaffRole';
 
 export interface ApiBrokerRole {

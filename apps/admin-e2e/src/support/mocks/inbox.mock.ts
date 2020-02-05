@@ -1,4 +1,4 @@
-import { ApiInbox, ApiMessage } from '../../../../../models/inbox';
+import { ApiInbox, ApiMessage } from '@hbx/api-interfaces';
 import * as faker from 'faker/locale/en_US';
 import { v4 as uuid } from 'uuid';
 

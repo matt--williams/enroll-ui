@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hbx/theme": ["libs/theme/src/index.ts"]
+      "@hbx/theme": ["libs/theme/src/index.ts"],
+      "@hbx/api-interfaces": ["libs/api-interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

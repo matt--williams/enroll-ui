@@ -1,5 +1,4 @@
 import * as faker from 'faker/locale/en_US';
-import { ApiBasePerson } from '../../../../../models/person';
 import { mockEmail } from './email.mock';
 import { mockInbox } from './inbox.mock';
 import {
@@ -7,7 +6,8 @@ import {
   ApiGeneralAgencyStaffRole,
   GeneralAgencyStaffRoleState,
   BrokerAgencyStaffRoleState,
-} from 'models/agencyStaffRole';
+  ApiBasePerson,
+} from '@hbx/api-interfaces';
 import { mockPersonAddress } from './address.mock';
 import { mockPersonPhone } from './phone.mock';
 

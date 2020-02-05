@@ -12,21 +12,26 @@
   },
   "projects": {
     "admin": {
-      "tags": []
+      "tags": ["type:app", "scope:admin"],
+      "implicitDependencies": ["theme"]
     },
     "admin-e2e": {
-      "tags": [],
+      "tags": ["type:e2e", "scope:admin"],
       "implicitDependencies": ["admin"]
     },
     "theme": {
-      "tags": []
+      "tags": ["type:theme", "scope:shared"]
     },
     "design-system": {
-      "tags": []
+      "tags": ["type:app", "scope:design-system"],
+      "implicitDependencies": ["admin"]
     },
     "design-system-e2e": {
-      "tags": [],
+      "tags": ["type:e2e", "scope:design-system"],
       "implicitDependencies": ["design-system"]
+    },
+    "api-interfaces": {
+      "tags": ["type:util", "scope:shared"]
     }
   }
 }

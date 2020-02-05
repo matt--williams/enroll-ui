@@ -6,11 +6,11 @@ import {
   MarketKind,
   OrganizationAasmState,
   EntityKind,
-} from '../../../../../models/benefitSponsorsOrg';
+} from '@hbx/api-interfaces';
 import { mockInbox } from './inbox.mock';
 import { mockOfficePhone } from './phone.mock';
 import { mockOfficeAddress } from './address.mock';
-import { ContactMethods } from 'models/contactMethods';
+import { ContactMethods } from '@hbx/api-interfaces';
 
 export function mockGeneralAgency(
   existingId: string = faker.random.uuid()

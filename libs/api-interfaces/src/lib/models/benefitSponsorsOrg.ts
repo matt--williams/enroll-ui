@@ -1,6 +1,6 @@
-import { ApiInbox } from 'models/inbox';
-import { ApiPhone } from 'phone';
-import { ApiOfficeAddress } from 'models/address';
+import { ApiInbox } from './inbox';
+import { ApiPhone } from './phone';
+import { ApiOfficeAddress } from './address';
 import { ContactMethods } from './contactMethods';
 
 export interface ApiBenefitSponsorsOrganization {

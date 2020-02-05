@@ -1,11 +1,11 @@
 import { ApiInbox } from './inbox';
-import { ApiPersonAddress } from 'models/address';
-import { ApiPhone } from 'phone';
+import { ApiPersonAddress } from './address';
+import { ApiPhone } from './phone';
 import {
   ApiBrokerAgencyStaffRole,
   ApiGeneralAgencyStaffRole,
-} from 'models/agencyStaffRole';
-import { ApiBrokerRole } from 'models/brokerRole';
+} from './agencyStaffRole';
+import { ApiBrokerRole } from './brokerRole';
 import { ApiEmail } from './email';
 import { ApiRelationship, GenericRelationship } from './relationship';
 

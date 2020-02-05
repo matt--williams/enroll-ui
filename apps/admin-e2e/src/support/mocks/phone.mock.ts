@@ -4,7 +4,7 @@ import {
   ApiPersonPhone,
   PersonPhoneKind,
   ApiOfficePhone,
-} from 'phone';
+} from '@hbx/api-interfaces';
 
 function mockPhone(): ApiPhone {
   const area_code: string = faker.random

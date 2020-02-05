@@ -5,7 +5,7 @@ import {
   ApiPersonAddress,
   ApiOfficeAddress,
   OfficeAddressKind,
-} from 'models/address';
+} from '@hbx/api-interfaces';
 
 export function mockBaseAddress(): ApiBaseAddress {
   const now = new Date();

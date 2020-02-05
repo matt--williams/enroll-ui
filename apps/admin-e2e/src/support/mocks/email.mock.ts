@@ -1,5 +1,5 @@
 import * as faker from 'faker/locale/en_US';
-import { EmailKind, ApiEmail } from 'models/email';
+import { EmailKind, ApiEmail } from '@hbx/api-interfaces';
 
 export function mockEmail(kind = EmailKind.Work): ApiEmail {
   const now = new Date();

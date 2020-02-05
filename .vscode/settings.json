@@ -1,10 +1,13 @@
 {
   "cSpell.words": [
+    "Buildable",
     "aasm",
     "codelyzer",
     "devkit",
     "esnext",
     "fein",
+    "forin",
+    "lifecycle",
     "nrwl",
     "state",
     "woff"
