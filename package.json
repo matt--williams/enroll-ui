@@ -31,7 +31,6 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/angular": "^8.12.2",
     "@angular/animations": "^8.2.0",
     "@angular/common": "^8.2.0",
     "@angular/compiler": "^8.2.0",
@@ -40,6 +39,8 @@
     "@angular/platform-browser": "^8.2.0",
     "@angular/platform-browser-dynamic": "^8.2.0",
     "@angular/router": "^8.2.0",
+    "@ngrx/entity": "^8.6.0",
+    "@nrwl/angular": "^8.12.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.4",
     "zone.js": "^0.9.1"
