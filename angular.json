@@ -324,6 +324,40 @@
           "styleext": "scss"
         }
       }
+    },
+    "admin-brokers-data-access": {
+      "projectType": "library",
+      "root": "libs/admin/brokers/data-access",
+      "sourceRoot": "libs/admin/brokers/data-access/src",
+      "prefix": "hbx",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/admin/brokers/data-access/tsconfig.lib.json",
+              "libs/admin/brokers/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/admin/brokers/data-access/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/admin/brokers/data-access/jest.config.js",
+            "tsConfig": "libs/admin/brokers/data-access/tsconfig.spec.json",
+            "setupFile": "libs/admin/brokers/data-access/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

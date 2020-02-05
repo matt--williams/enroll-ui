@@ -17,7 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@hbx/theme": ["libs/theme/src/index.ts"],
-      "@hbx/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@hbx/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@hbx/admin/brokers/data-access": [
+        "libs/admin/brokers/data-access/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

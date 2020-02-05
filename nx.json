@@ -32,6 +32,9 @@
     },
     "api-interfaces": {
       "tags": ["type:util", "scope:shared"]
+    },
+    "admin-brokers-data-access": {
+      "tags": ["type:data-access", "scope:admin"]
     }
   }
 }
