@@ -1,1 +1,1 @@
-export * from './lib/admin-brokers-data-access.module';
+export * from './lib/checkStaffType';
