@@ -10,7 +10,23 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     HttpClientModule,
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(
+      [
+        {
+          path: 'brokers',
+          loadChildren: () =>
+            import('@hbx/admin/brokers/feature').then(
+              module => module.AdminBrokersFeatureModule
+            ),
+        },
+        {
+          path: '',
+          redirectTo: 'brokers',
+          pathMatch: 'full',
+        },
+      ],
+      { initialNavigation: 'enabled' }
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent],

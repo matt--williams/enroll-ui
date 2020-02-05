@@ -35,6 +35,9 @@
     },
     "admin-brokers-data-access": {
       "tags": ["type:data-access", "scope:admin"]
+    },
+    "admin-brokers-feature": {
+      "tags": ["type:feature", "scope:admin"]
     }
   }
 }
