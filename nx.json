@@ -41,6 +41,9 @@
     },
     "admin-shared-view-models": {
       "tags": ["scope:admin", "type:util"]
+    },
+    "admin-shell": {
+      "tags": ["scope:admin", "type:feature"]
     }
   }
 }
