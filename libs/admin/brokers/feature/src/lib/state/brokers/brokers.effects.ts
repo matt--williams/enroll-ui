@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
+import { map } from 'rxjs/operators';
+
+import { BrokersApiService } from '@hbx/admin/brokers/data-access';
 
 import * as fromBrokers from './brokers.reducer';
 import * as BrokersActions from './brokers.actions';
@@ -12,8 +15,11 @@ export class BrokersEffects {
       ofType(BrokersActions.loadBrokers),
       fetch({
         run: action => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return BrokersActions.loadBrokersSuccess({ brokers: [] });
+          return this.brokerApiService
+            .getAllBrokers()
+            .pipe(
+              map(brokers => BrokersActions.loadBrokersSuccess({ brokers: [] }))
+            );
         },
 
         onError: (action, error) => {
@@ -24,5 +30,8 @@ export class BrokersEffects {
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private brokerApiService: BrokersApiService
+  ) {}
 }

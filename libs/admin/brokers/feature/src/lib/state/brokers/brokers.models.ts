@@ -19,7 +19,7 @@ export interface BrokersEntity {
   updatedAt: Date;
   createdAt: Date;
 
-  profiles: OrganizationProfile;
+  profiles: OrganizationProfile[];
 
   planDesignAuthorIds?: any[];
   planDesignSubjectIds?: any[];
