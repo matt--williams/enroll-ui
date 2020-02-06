@@ -13,7 +13,9 @@ export class BrokersEffects {
   loadBrokers$ = createEffect(() =>
     this.dataPersistence.fetch(BrokersActions.loadBrokers, {
       run: (
+        // action contains the payload if any
         action: ReturnType<typeof BrokersActions.loadBrokers>,
+        // state is brought in just in case we need anything from it
         state: fromBrokers.BrokersPartialState
       ) => {
         return this.brokersApiService

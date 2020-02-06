@@ -1,11 +1,11 @@
 import { createAction, props } from '@ngrx/store';
-import { BrokersEntity } from './brokers.models';
+import { ApiBenefitSponsorsOrganization } from '@hbx/api-interfaces';
 
 export const loadBrokers = createAction('[Brokers] Load Brokers');
 
 export const loadBrokersSuccess = createAction(
   '[Brokers] Load Brokers Success',
-  props<{ brokers: BrokersEntity[] }>()
+  props<{ brokers: ApiBenefitSponsorsOrganization[] }>()
 );
 
 export const loadBrokersFailure = createAction(
