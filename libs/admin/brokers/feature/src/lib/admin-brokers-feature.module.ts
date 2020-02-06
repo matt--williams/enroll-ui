@@ -17,11 +17,11 @@ import { BrokersFeatureShellComponent } from './brokers-feature-shell/brokers-fe
       { path: '', pathMatch: 'full', component: BrokersFeatureShellComponent },
     ]),
 
+    // NgRx Feature Module Setup
     StoreModule.forFeature(
       fromBrokers.BROKERS_FEATURE_KEY,
       fromBrokers.reducer
     ),
-
     EffectsModule.forFeature([BrokersEffects]),
   ],
   providers: [BrokersFacade],

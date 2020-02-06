@@ -31,6 +31,7 @@ import { AdminShellComponent } from './admin-shell/admin-shell.component';
       { initialNavigation: 'enabled' }
     ),
     NxModule.forRoot(),
+
     // NgRx setup
     StoreModule.forRoot(
       {},
