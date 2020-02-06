@@ -7,13 +7,14 @@ import {
   GeneralAgencyStaffRoleState,
   BrokerAgencyStaffRoleState,
   ApiBasePerson,
+  Gender,
 } from '@hbx/api-interfaces';
 import { mockPersonAddress } from './address.mock';
 import { mockPersonPhone } from './phone.mock';
 
 export function mockBasePerson(): ApiBasePerson {
   const genderNumber = faker.random.number(1);
-  const genderString = genderNumber === 0 ? 'male' : 'female';
+  const genderString: Gender = genderNumber === 0 ? Gender.Male : Gender.Female;
 
   const now = new Date();
   const created = faker.date.recent();

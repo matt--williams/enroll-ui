@@ -455,6 +455,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "utils-testing": {
+      "projectType": "library",
+      "root": "libs/utils/testing",
+      "sourceRoot": "libs/utils/testing/src",
+      "prefix": "hbx",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/utils/testing/tsconfig.lib.json",
+              "libs/utils/testing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/utils/testing/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/utils/testing/jest.config.js",
+            "tsConfig": "libs/utils/testing/tsconfig.spec.json",
+            "setupFile": "libs/utils/testing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

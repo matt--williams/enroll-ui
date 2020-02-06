@@ -43,6 +43,9 @@
     },
     "admin-shell": {
       "tags": ["scope:admin", "type:feature"]
+    },
+    "utils-testing": {
+      "tags": ["type:util", "scope:shared"]
     }
   }
 }

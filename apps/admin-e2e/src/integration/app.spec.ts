@@ -1,6 +1,5 @@
 import { getGreeting } from '../support/app.po';
-import { mockBasePerson } from '../support/mocks/person.mock';
-import { mockGeneralAgency } from '../support/mocks/organization.mock';
+import { mockBasePerson, mockGeneralAgency } from '@hbx/utils/testing';
 
 describe('admin', () => {
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import { ApiInbox } from './inbox';
 import { ApiPhone } from './phone';
 import { ApiOfficeAddress } from './address';
-import { ContactMethod } from './contactMethods';
+import { ContactMethod } from './contactMethod';
 
 export interface ApiBenefitSponsorsOrganization {
   _id: string;

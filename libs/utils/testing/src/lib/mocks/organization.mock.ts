@@ -6,11 +6,11 @@ import {
   MarketKind,
   OrganizationAasmState,
   EntityKind,
+  ContactMethod,
 } from '@hbx/api-interfaces';
 import { mockInbox } from './inbox.mock';
 import { mockOfficePhone } from './phone.mock';
 import { mockOfficeAddress } from './address.mock';
-import { ContactMethods } from '@hbx/api-interfaces';
 
 export function mockGeneralAgency(
   existingId: string = faker.random.uuid()
@@ -44,7 +44,7 @@ export function mockOrgProfile(
 
   const profile: ApiOrganizationProfile = {
     _id: id,
-    contact_method: ContactMethods.PaperAndElectronic,
+    contact_method: ContactMethod.PaperAndElectronic,
     _type: `BenefitSponsors::Organizations::${agencyType}AgencyProfile`,
     languages_spoken: ['en'],
     market_kind: MarketKind.Individual,

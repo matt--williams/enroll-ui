@@ -25,7 +25,8 @@
       "@hbx/admin/shared/view-models": [
         "libs/admin/shared/view-models/src/index.ts"
       ],
-      "@hbx/admin/shell": ["libs/admin/shell/src/index.ts"]
+      "@hbx/admin/shell": ["libs/admin/shell/src/index.ts"],
+      "@hbx/utils/testing": ["libs/utils/testing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
