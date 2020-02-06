@@ -20,7 +20,7 @@ export interface ApiBasePerson {
   first_name: string;
   last_name: string;
   dob: string;
-  gender: 'male' | 'female';
+  gender: Gender;
   encrypted_ssn: string;
   updated_by_id?: string;
   updated_at: string;
@@ -39,4 +39,9 @@ export interface ApiBasePerson {
   assister_role?: any;
   csr_role?: any;
   consumer_role?: any;
+}
+
+export const enum Gender {
+  Male = 'male',
+  Female = 'female',
 }
