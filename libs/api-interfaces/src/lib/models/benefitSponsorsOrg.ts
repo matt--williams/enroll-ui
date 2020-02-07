@@ -16,15 +16,14 @@ export interface ApiBenefitSponsorsOrganization {
   hbx_id: string;
   updated_at: string;
   created_at: string;
-  profiles: ApiOrganizationProfile[];
   plan_design_author_ids?: any[];
   plan_design_subject_ids?: any[];
+  profiles: ApiOrganizationProfile[];
 }
 
 export interface ApiOrganizationProfile {
   _id: string;
   contact_method: ContactMethod;
-  _type: string; // enum?
   languages_spoken: string[];
   market_kind: MarketKind;
   home_page?: any;
@@ -40,6 +39,7 @@ export interface ApiOrganizationProfile {
   office_locations: ApiOfficeLocation[];
   inbox: ApiInbox;
   primary_broker_role_id: string; // check this
+  _type: string; // enum?
 }
 
 export interface ApiOfficeLocation {

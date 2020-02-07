@@ -68,7 +68,7 @@
     "cypress": "^4.0.0",
     "dotenv": "6.2.0",
     "eslint": "6.1.0",
-    "faker": "Marak/faker.js",
+    "faker": "^4.1.0",
     "jest": "24.1.0",
     "jest-preset-angular": "8.0.0",
     "prettier": "^1.19.1",

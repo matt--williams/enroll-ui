@@ -1,11 +1,6 @@
 import { ApiInbox } from './inbox';
 import { ApiPersonAddress } from './address';
 import { ApiPhone } from './phone';
-import {
-  ApiBrokerAgencyStaffRole,
-  ApiGeneralAgencyStaffRole,
-} from './agencyStaffRole';
-import { ApiBrokerRole } from './brokerRole';
 import { ApiEmail } from './email';
 import { ApiRelationship, GenericRelationship } from './relationship';
 
@@ -32,13 +27,6 @@ export interface ApiBasePerson {
   emails: ApiEmail[];
   phones?: ApiPhone[];
   user_id?: string;
-  broker_agency_staff_roles?: ApiBrokerAgencyStaffRole[];
-  general_agency_staff_roles?: ApiGeneralAgencyStaffRole[];
-  broker_role?: ApiBrokerRole;
-  hbx_staff_role?: any;
-  assister_role?: any;
-  csr_role?: any;
-  consumer_role?: any;
 }
 
 export const enum Gender {

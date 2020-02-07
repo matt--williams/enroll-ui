@@ -1,14 +1,9 @@
 import * as faker from 'faker/locale/en_US';
+
+import { ApiBasePerson, Gender } from '@hbx/api-interfaces';
+
 import { mockEmail } from './email.mock';
 import { mockInbox } from './inbox.mock';
-import {
-  ApiBrokerAgencyStaffRole,
-  ApiGeneralAgencyStaffRole,
-  GeneralAgencyStaffRoleState,
-  BrokerAgencyStaffRoleState,
-  ApiBasePerson,
-  Gender,
-} from '@hbx/api-interfaces';
 import { mockPersonAddress } from './address.mock';
 import { mockPersonPhone } from './phone.mock';
 
@@ -17,7 +12,7 @@ export function mockBasePerson(): ApiBasePerson {
   const genderString: Gender = genderNumber === 0 ? Gender.Male : Gender.Female;
 
   const now = new Date();
-  const created = faker.date.recent();
+  const created = faker.date.recent(30);
   const updated = faker.date.between(created, now);
 
   const person: ApiBasePerson = {
@@ -44,72 +39,4 @@ export function mockBasePerson(): ApiBasePerson {
   };
 
   return person;
-}
-
-export function mockBrokerStaff(): ApiBasePerson {
-  const brokerStaff: ApiBasePerson = {
-    ...mockBasePerson(),
-    broker_agency_staff_roles: [mockBrokerAgencyStaffRole()],
-  };
-
-  return brokerStaff;
-}
-
-export function mockGeneralAgencyStaff(): ApiBasePerson {
-  const generalAgencyStaff: ApiBasePerson = {
-    ...mockBasePerson(),
-    general_agency_staff_roles: [mockGeneralAgencyStaffRole()],
-  };
-
-  return generalAgencyStaff;
-}
-
-export function mockGeneralAgencyStaffRole(): ApiGeneralAgencyStaffRole {
-  const recent = faker.date.recent().toISOString();
-
-  const staffRole: ApiGeneralAgencyStaffRole = {
-    _id: faker.random.uuid(),
-    npn: faker.random.number({ min: 1111111111, max: 9999999999 }).toString(),
-    aasm_state: GeneralAgencyStaffRoleState.Active,
-    tracking_version: 1,
-    workflow_state_transitions: [
-      {
-        _id: faker.random.uuid(),
-        from_state: GeneralAgencyStaffRoleState.Applicant,
-        to_state: GeneralAgencyStaffRoleState.Active,
-        event: 'approve!',
-        transition_at: recent,
-        created_at: recent,
-        updated_at: recent,
-      },
-    ],
-    benefit_sponsors_general_agency_profile_id: faker.random.uuid(),
-  };
-
-  return staffRole;
-}
-
-export function mockBrokerAgencyStaffRole(): ApiBrokerAgencyStaffRole {
-  const recent = faker.date.recent().toISOString();
-
-  const staffRole: ApiBrokerAgencyStaffRole = {
-    _id: faker.random.uuid(),
-    npn: faker.random.number({ min: 1111111111, max: 9999999999 }).toString(),
-    aasm_state: BrokerAgencyStaffRoleState.Active,
-    tracking_version: 1,
-    workflow_state_transitions: [
-      {
-        _id: faker.random.uuid(),
-        from_state: BrokerAgencyStaffRoleState.Pending,
-        to_state: BrokerAgencyStaffRoleState.Active,
-        event: 'broker_agency_accept!',
-        transition_at: recent,
-        created_at: recent,
-        updated_at: recent,
-      },
-    ],
-    benefit_sponsors_broker_agency_profile_id: faker.random.uuid(),
-  };
-
-  return staffRole;
 }

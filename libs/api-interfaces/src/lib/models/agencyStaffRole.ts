@@ -13,6 +13,7 @@ export interface ApiGeneralAgencyStaffRole extends ApiAgencyStaffRole {
   workflow_state_transitions: WorkflowStateTransition<
     GeneralAgencyStaffRoleState
   >[];
+  is_primary: boolean;
 }
 
 export interface ApiBrokerAgencyStaffRole extends ApiAgencyStaffRole {
@@ -21,6 +22,34 @@ export interface ApiBrokerAgencyStaffRole extends ApiAgencyStaffRole {
   workflow_state_transitions: WorkflowStateTransition<
     BrokerAgencyStaffRoleState
   >[];
+}
+
+export interface ApiBrokerRole extends ApiAgencyStaffRole {
+  aasm_state: BrokerRoleState;
+  benefit_sponsors_broker_agency_profile_id: string;
+  workflow_state_transitions: WorkflowStateTransition<BrokerRoleState>[];
+
+  languages_spoken: string[];
+  carrier_appointments: CarrierAppointments;
+  provider_kind: ProviderKind;
+  market_kind?: any;
+  updated_at: string;
+  created_at: string;
+  reason: string;
+  license: boolean;
+  training: boolean;
+  working_hours: boolean;
+}
+
+export interface CarrierAppointments {
+  'Aetna Health Inc': boolean;
+  'Aetna Life Insurance Company': boolean;
+  'Carefirst Bluechoice Inc': boolean;
+  'Group Hospitalization and Medical Services Inc': boolean;
+  'Kaiser Foundation': boolean;
+  'Optimum Choice': boolean;
+  'United Health Care Insurance': boolean;
+  'United Health Care Mid Atlantic': boolean;
 }
 
 export const enum BrokerAgencyStaffRoleState {

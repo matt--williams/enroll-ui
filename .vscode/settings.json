@@ -5,6 +5,8 @@
     "Marak",
     "Serializers",
     "aasm",
+    "bluechoice",
+    "carefirst",
     "codelyzer",
     "devkit",
     "esnext",

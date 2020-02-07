@@ -10,3 +10,4 @@ export * from './phone';
 export * from './relationship';
 export * from './user';
 export * from './workflowStateTransition';
+export * from './agencyStaff';

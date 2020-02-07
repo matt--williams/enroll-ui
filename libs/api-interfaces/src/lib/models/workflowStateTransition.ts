@@ -1,6 +1,6 @@
 export interface WorkflowStateTransition<T, K = {}> {
   _id: string;
-  from_state: T;
+  from_state?: T;
   to_state: T;
   event?: K;
   transition_at: string;
