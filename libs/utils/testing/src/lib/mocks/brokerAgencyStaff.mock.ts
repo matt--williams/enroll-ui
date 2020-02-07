@@ -5,7 +5,7 @@ import {
   PrimaryBrokerStaff,
   ApiBrokerAgencyStaffRole,
   BrokerAgencyStaffRoleState,
-  ApiBrokerRole,
+  ApiPrimaryBrokerRole,
   ProviderKind,
   BrokerRoleState,
 } from '@hbx/api-interfaces';
@@ -17,7 +17,7 @@ export function mockPrimaryBroker(
 ): PrimaryBrokerStaff {
   const primaryBroker: PrimaryBrokerStaff = {
     ...mockBasePerson(),
-    broker_role: mockBrokerRole(associatedAgencyId),
+    broker_role: mockPrimaryBrokerRole(associatedAgencyId),
   };
 
   return primaryBroker;
@@ -57,12 +57,14 @@ export function mockBrokerAgencyStaffRole(): ApiBrokerAgencyStaffRole {
   return staffRole;
 }
 
-export function mockBrokerRole(associatedAgencyId: string): ApiBrokerRole {
+function mockPrimaryBrokerRole(
+  associatedAgencyId: string
+): ApiPrimaryBrokerRole {
   const now = new Date();
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
-  const brokerRole: ApiBrokerRole = {
+  const brokerRole: ApiPrimaryBrokerRole = {
     _id: faker.random.uuid(), // must match broker agency primary_broker_role_id
     languages_spoken: ['en'],
     carrier_appointments: {
