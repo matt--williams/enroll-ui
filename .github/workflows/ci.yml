@@ -30,7 +30,6 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run affected:lint
-
         env:
           CI: true
 
@@ -57,7 +56,6 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run affected:test
-
         env:
           CI: true
 
@@ -86,6 +84,5 @@ jobs:
         run: npm ci
       - name: Build Application
         run: npm run build:admin
-
         env:
           CI: true
