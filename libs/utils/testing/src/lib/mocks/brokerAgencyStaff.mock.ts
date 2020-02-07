@@ -13,59 +13,27 @@ import {
 import { mockBasePerson } from './person.mock';
 
 export function mockPrimaryBroker(
-  associatedAgencyId: string
+  agencyProfileId: string,
+  brokerRoleId: string
 ): PrimaryBrokerStaff {
   const primaryBroker: PrimaryBrokerStaff = {
     ...mockBasePerson(),
-    broker_role: mockPrimaryBrokerRole(associatedAgencyId),
+    broker_role: mockPrimaryBrokerRole(agencyProfileId, brokerRoleId),
   };
 
   return primaryBroker;
 }
 
-export function mockBrokerAgencyStaff(): BrokerAgencyStaff {
-  const brokerStaff: BrokerAgencyStaff = {
-    ...mockBasePerson(),
-    broker_agency_staff_roles: [mockBrokerAgencyStaffRole()],
-  };
-
-  return brokerStaff;
-}
-
-export function mockBrokerAgencyStaffRole(): ApiBrokerAgencyStaffRole {
-  const recent = faker.date.recent().toISOString();
-
-  const staffRole: ApiBrokerAgencyStaffRole = {
-    _id: faker.random.uuid(),
-    npn: faker.random.number({ min: 1111111111, max: 9999999999 }).toString(),
-    aasm_state: BrokerAgencyStaffRoleState.Active,
-    tracking_version: 1,
-    workflow_state_transitions: [
-      {
-        _id: faker.random.uuid(),
-        from_state: BrokerAgencyStaffRoleState.Pending,
-        to_state: BrokerAgencyStaffRoleState.Active,
-        event: 'broker_agency_accept!',
-        transition_at: recent,
-        created_at: recent,
-        updated_at: recent,
-      },
-    ],
-    benefit_sponsors_broker_agency_profile_id: faker.random.uuid(),
-  };
-
-  return staffRole;
-}
-
 function mockPrimaryBrokerRole(
-  associatedAgencyId: string
+  associatedAgencyId: string,
+  primaryBrokerRoleId: string
 ): ApiPrimaryBrokerRole {
   const now = new Date();
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
   const brokerRole: ApiPrimaryBrokerRole = {
-    _id: faker.random.uuid(), // must match broker agency primary_broker_role_id
+    _id: primaryBrokerRoleId, // must match broker agency primary_broker_role_id
     languages_spoken: ['en'],
     carrier_appointments: {
       'Aetna Health Inc': true,
@@ -107,4 +75,42 @@ function mockPrimaryBrokerRole(
   };
 
   return brokerRole;
+}
+
+export function mockBrokerAgencyStaff(
+  agencyProfileId: string
+): BrokerAgencyStaff {
+  const brokerStaff: BrokerAgencyStaff = {
+    ...mockBasePerson(),
+    broker_agency_staff_roles: [mockBrokerAgencyStaffRole(agencyProfileId)],
+  };
+
+  return brokerStaff;
+}
+
+function mockBrokerAgencyStaffRole(
+  agencyProfileId: string
+): ApiBrokerAgencyStaffRole {
+  const recent = faker.date.recent().toISOString();
+
+  const staffRole: ApiBrokerAgencyStaffRole = {
+    _id: faker.random.uuid(),
+    npn: faker.random.number({ min: 1111111111, max: 9999999999 }).toString(),
+    aasm_state: BrokerAgencyStaffRoleState.Active,
+    tracking_version: 1,
+    workflow_state_transitions: [
+      {
+        _id: faker.random.uuid(),
+        from_state: BrokerAgencyStaffRoleState.Pending,
+        to_state: BrokerAgencyStaffRoleState.Active,
+        event: 'broker_agency_accept!',
+        transition_at: recent,
+        created_at: recent,
+        updated_at: recent,
+      },
+    ],
+    benefit_sponsors_broker_agency_profile_id: agencyProfileId,
+  };
+
+  return staffRole;
 }

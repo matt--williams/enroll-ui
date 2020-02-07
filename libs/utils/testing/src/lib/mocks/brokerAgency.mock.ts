@@ -7,22 +7,26 @@ import { mockBaseBenefitSponsorsOrg } from './baseOrganization.mock';
 import { mockBaseOrganizationProfile } from './baseOrganizationProfile.mock';
 
 export function mockBrokerAgency(
-  primaryBrokerId: string
+  brokerRoleId: string,
+  agencyProfileId: string
 ): ApiBenefitSponsorsOrganization {
   const benefitSponsorsOrg: ApiBenefitSponsorsOrganization = {
     ...mockBaseBenefitSponsorsOrg(),
-    profiles: [mockBrokerAgencyProfile(primaryBrokerId)],
+    profiles: [mockBrokerAgencyProfile(brokerRoleId, agencyProfileId)],
   };
 
   return benefitSponsorsOrg;
 }
 
 function mockBrokerAgencyProfile(
-  primaryBrokerId: string
+  brokerRoleId: string,
+  agencyProfileId: string
 ): ApiOrganizationProfile {
   const profile: ApiOrganizationProfile = {
-    ...mockBaseOrganizationProfile(primaryBrokerId),
+    ...mockBaseOrganizationProfile(),
     _type: `BenefitSponsors::Organizations::BrokerAgencyProfile`,
+    _id: agencyProfileId,
+    primary_broker_role_id: brokerRoleId,
   };
 
   return profile;
