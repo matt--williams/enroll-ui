@@ -1,13 +1,13 @@
 import { WorkflowStateTransition } from './workflowStateTransition';
 
-export interface ApiAgencyStaffRole {
+export interface AgencyStaffRole {
   _id: string;
   npn: string;
   updated_by_id?: any;
   tracking_version: number;
 }
 
-export interface ApiBrokerAgencyStaffRole extends ApiAgencyStaffRole {
+export interface ApiBrokerAgencyStaffRole extends AgencyStaffRole {
   aasm_state: BrokerAgencyStaffRoleState; // enum;
   benefit_sponsors_broker_agency_profile_id: string;
   workflow_state_transitions: WorkflowStateTransition<
@@ -16,7 +16,7 @@ export interface ApiBrokerAgencyStaffRole extends ApiAgencyStaffRole {
 }
 
 // This interface is only related to Broker Agencies
-export interface ApiPrimaryBrokerRole extends ApiAgencyStaffRole {
+export interface ApiPrimaryBrokerRole extends AgencyStaffRole {
   aasm_state: BrokerRoleState;
   benefit_sponsors_broker_agency_profile_id: string;
   workflow_state_transitions: WorkflowStateTransition<BrokerRoleState>[];

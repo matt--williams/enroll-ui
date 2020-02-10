@@ -1,7 +1,7 @@
-import { ApiAgencyStaffRole } from './brokerAgencyStaffRole';
+import { AgencyStaffRole } from './brokerAgencyStaffRole';
 import { WorkflowStateTransition } from './workflowStateTransition';
 
-export interface ApiGeneralAgencyStaffRole extends ApiAgencyStaffRole {
+export interface ApiGeneralAgencyStaffRole extends AgencyStaffRole {
   aasm_state: GeneralAgencyStaffRoleState; // enum;
   benefit_sponsors_general_agency_profile_id: string;
   workflow_state_transitions: WorkflowStateTransition<
