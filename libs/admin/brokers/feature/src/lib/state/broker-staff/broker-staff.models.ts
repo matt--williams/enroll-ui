@@ -1,27 +1,33 @@
 // Eventually use this file as a View Model entity interface
 
-import {
-  ApiBasePerson,
-  AgencyStaffRole,
-  WorkflowStateTransition,
-} from '@hbx/api-interfaces';
+import { ApiBasePerson, AgencyStaffRole } from '@hbx/api-interfaces';
 
 /**
  * Interface for the 'BrokerStaff' data
  */
 export interface BrokerStaffEntity extends ApiBasePerson {
-  primaryStaff: boolean;
   staffRoles: StaffRole[];
 }
 
 export interface StaffRole extends AgencyStaffRole {
   aasm_state: AgencyRoleState;
-  workflow_sate_transitions: WorkflowStateTransition<AgencyRoleState>;
+  workflow_state_transitions: StateTransitionHistory[];
   agencyId: string;
+  primaryStaff: boolean;
 }
 
 export const enum AgencyRoleState {
   Pending = 'Pending',
   Active = 'Active',
   Terminated = 'Terminated',
+  Other = 'Other',
+}
+
+export interface StateTransitionHistory {
+  _id: string;
+  from_state: AgencyRoleState;
+  to_state: AgencyRoleState;
+  transition_at?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }

@@ -1,6 +1,6 @@
 import { ApiInbox } from './inbox';
 import { ApiPersonAddress } from './address';
-import { ApiPhone } from './phone';
+import { ApiPersonPhone } from './phone';
 import { ApiEmail } from './email';
 import { ApiRelationship, GenericRelationship } from './relationship';
 
@@ -25,7 +25,7 @@ export interface ApiBasePerson {
   addresses?: ApiPersonAddress[];
   inbox: ApiInbox;
   emails: ApiEmail[];
-  phones?: ApiPhone[];
+  phones?: ApiPersonPhone[];
   user_id?: string;
 }
 

@@ -55,6 +55,7 @@ function mockPrimaryBrokerRole(
     workflow_state_transitions: [
       {
         _id: faker.random.uuid(),
+        from_state: BrokerRoleState.Applicant,
         to_state: BrokerRoleState.Applicant,
         transition_at: created.toISOString(),
       },

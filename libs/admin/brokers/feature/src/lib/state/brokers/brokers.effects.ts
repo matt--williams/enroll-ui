@@ -19,9 +19,11 @@ export class BrokersEffects {
         state: fromBrokers.BrokersPartialState
       ) => {
         return this.brokersApiService
-          .getAllBrokers()
+          .getAllAgencyStaff()
           .pipe(
-            map(brokers => BrokersActions.loadBrokersSuccess({ brokers: [] }))
+            map(agencyStaff =>
+              BrokersActions.loadBrokersSuccess({ brokers: [] })
+            )
           );
       },
 
