@@ -18,6 +18,7 @@
     "nrwl",
     "state",
     "styleext",
+    "stylelint",
     "tslib",
     "woff"
   ]

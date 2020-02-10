@@ -72,6 +72,8 @@
     "jest": "24.1.0",
     "jest-preset-angular": "8.0.0",
     "prettier": "^1.19.1",
+    "stylelint": "^13.1.0",
+    "stylelint-config-standard": "^20.0.0",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
