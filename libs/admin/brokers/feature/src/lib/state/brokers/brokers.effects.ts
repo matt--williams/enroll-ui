@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { createEffect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
 
@@ -36,7 +36,6 @@ export class BrokersEffects {
   );
 
   constructor(
-    private actions$: Actions,
     private dataPersistence: DataPersistence<fromBrokers.BrokersPartialState>,
     private brokersApiService: BrokersApiService
   ) {}
