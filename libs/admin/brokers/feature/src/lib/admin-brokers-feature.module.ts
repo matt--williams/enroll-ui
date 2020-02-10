@@ -8,6 +8,9 @@ import * as fromBrokers from './state/brokers/brokers.reducer';
 import { BrokersEffects } from './state/brokers/brokers.effects';
 import { BrokersFacade } from './state/brokers/brokers.facade';
 import { BrokersFeatureShellComponent } from './brokers-feature-shell/brokers-feature-shell.component';
+import * as fromBrokerStaff from './state/broker-staff/broker-staff.reducer';
+import { BrokerStaffEffects } from './state/broker-staff/broker-staff.effects';
+import { BrokerStaffFacade } from './state/broker-staff/broker-staff.facade';
 
 @NgModule({
   imports: [
@@ -23,8 +26,13 @@ import { BrokersFeatureShellComponent } from './brokers-feature-shell/brokers-fe
       fromBrokers.reducer
     ),
     EffectsModule.forFeature([BrokersEffects]),
+    StoreModule.forFeature(
+      fromBrokerStaff.BROKERSTAFF_FEATURE_KEY,
+      fromBrokerStaff.reducer
+    ),
+    EffectsModule.forFeature([BrokerStaffEffects]),
   ],
-  providers: [BrokersFacade],
+  providers: [BrokersFacade, BrokerStaffFacade],
   declarations: [BrokersFeatureShellComponent],
 })
 export class AdminBrokersFeatureModule {}
