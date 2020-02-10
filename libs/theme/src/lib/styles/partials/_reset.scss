@@ -5,10 +5,13 @@
   box-sizing: border-box;
 }
 
-/* Remove default padding */
 ul[class],
 ol[class] {
+  /* Remove default padding */
   padding: 0;
+
+  /* Remove list styles on ul, ol elements with a class attribute */
+  list-style: none;
 }
 
 /* Remove default margin */
@@ -35,12 +38,6 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-}
-
-/* Remove list styles on ul, ol elements with a class attribute */
-ul[class],
-ol[class] {
-  list-style: none;
 }
 
 /* A elements that don't have a class get default styles */

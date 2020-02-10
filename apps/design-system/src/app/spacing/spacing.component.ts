@@ -4,13 +4,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   selector: 'hbx-spacing',
   templateUrl: './spacing.component.html',
   styleUrls: ['./spacing.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpacingComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
