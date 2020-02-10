@@ -1,7 +1,7 @@
 import * as faker from 'faker/locale/en_US';
 
 import {
-  ApiOrganizationProfile,
+  BaseOrganizationProfile,
   MarketKind,
   ContactMethod,
   OrganizationAasmState,
@@ -10,18 +10,12 @@ import {
 import { mockOfficeLocation } from './officeLocation.mock';
 import { mockInbox } from './inbox.mock';
 
-export function mockBaseOrganizationProfile(): Omit<
-  ApiOrganizationProfile,
-  '_type' | '_id' | 'primary_broker_role_id'
-> {
+export function mockBaseOrganizationProfile(): BaseOrganizationProfile {
   const now = new Date();
   const created = faker.date.recent(30);
   const updated = faker.date.between(created, now);
 
-  const profile: Omit<
-    ApiOrganizationProfile,
-    '_type' | '_id' | 'primary_broker_role_id'
-  > = {
+  const profile: BaseOrganizationProfile = {
     contact_method: ContactMethod.PaperAndElectronic,
     languages_spoken: ['en'],
     market_kind: MarketKind.Individual,

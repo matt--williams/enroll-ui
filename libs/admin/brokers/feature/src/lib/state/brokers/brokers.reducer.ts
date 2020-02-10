@@ -6,7 +6,7 @@ import { ApiBenefitSponsorsOrganization } from '@hbx/api-interfaces';
 
 export const BROKERS_FEATURE_KEY = 'brokers';
 
-export function selectAgencyId(a: ApiBenefitSponsorsOrganization): string {
+function selectAgencyId(a: ApiBenefitSponsorsOrganization): string {
   //In this case this would be optional since primary key is id
   return a._id;
 }

@@ -12,3 +12,5 @@ export * from './workflowStateTransition';
 export * from './brokerAgencyStaff';
 export * from './generalAgencyStaff';
 export * from './generalAgencyStaffRole';
+export * from './brokerAgencyProfile';
+export * from './generalAgencyProfile';

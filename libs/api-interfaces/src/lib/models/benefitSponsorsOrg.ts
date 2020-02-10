@@ -18,11 +18,10 @@ export interface ApiBenefitSponsorsOrganization {
   created_at: string;
   plan_design_author_ids?: any[];
   plan_design_subject_ids?: any[];
-  profiles: ApiOrganizationProfile[];
+  profiles: BaseOrganizationProfile[];
 }
 
-export interface ApiOrganizationProfile {
-  _id: string;
+export interface BaseOrganizationProfile {
   contact_method: ContactMethod;
   languages_spoken: string[];
   market_kind: MarketKind;
@@ -38,8 +37,6 @@ export interface ApiOrganizationProfile {
   created_at: string;
   office_locations: ApiOfficeLocation[];
   inbox: ApiInbox;
-  primary_broker_role_id: string; // check this
-  _type: string; // enum?
 }
 
 export interface ApiOfficeLocation {

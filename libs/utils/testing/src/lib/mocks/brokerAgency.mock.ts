@@ -1,6 +1,7 @@
 import {
   ApiBenefitSponsorsOrganization,
-  ApiOrganizationProfile,
+  BaseOrganizationProfile,
+  BrokerAgencyProfile,
 } from '@hbx/api-interfaces';
 
 import { mockBaseBenefitSponsorsOrg } from './baseOrganization.mock';
@@ -21,8 +22,8 @@ export function mockBrokerAgency(
 function mockBrokerAgencyProfile(
   brokerRoleId: string,
   agencyProfileId: string
-): ApiOrganizationProfile {
-  const profile: ApiOrganizationProfile = {
+): BaseOrganizationProfile {
+  const profile: BrokerAgencyProfile = {
     ...mockBaseOrganizationProfile(),
     _type: `BenefitSponsors::Organizations::BrokerAgencyProfile`,
     _id: agencyProfileId,

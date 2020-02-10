@@ -12,12 +12,12 @@ import { mockBasePerson } from './person.mock';
  */
 export function mockGeneralAgencyStaff(
   isPrimaryAgent: boolean = false,
-  agencyId: string
+  agencyProfileId: string
 ): GeneralAgencyStaff {
   const generalAgencyStaff: GeneralAgencyStaff = {
     ...mockBasePerson(),
     general_agency_staff_roles: [
-      mockGeneralAgencyStaffRole(isPrimaryAgent, agencyId),
+      mockGeneralAgencyStaffRole(isPrimaryAgent, agencyProfileId),
     ],
   };
 
@@ -26,7 +26,7 @@ export function mockGeneralAgencyStaff(
 
 function mockGeneralAgencyStaffRole(
   isPrimaryAgent: boolean,
-  agencyId: string
+  agencyProfileId: string
 ): ApiGeneralAgencyStaffRole {
   const recent = faker.date.recent().toISOString();
 
@@ -48,7 +48,7 @@ function mockGeneralAgencyStaffRole(
     ],
 
     // Must match the General Agency
-    benefit_sponsors_general_agency_profile_id: agencyId,
+    benefit_sponsors_general_agency_profile_id: agencyProfileId,
     is_primary: isPrimaryAgent,
   };
 

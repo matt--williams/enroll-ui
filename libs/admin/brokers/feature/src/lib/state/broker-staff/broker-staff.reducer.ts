@@ -1,10 +1,15 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
-import * as BrokerStaffActions from './broker-staff.actions';
 import { BrokerStaffEntity } from './broker-staff.models';
+import * as BrokerStaffActions from './broker-staff.actions';
 
 export const BROKERSTAFF_FEATURE_KEY = 'brokerStaff';
+
+function selectBrokerId(a: BrokerStaffEntity): string {
+  //In this case this would be optional since primary key is id
+  return a._id;
+}
 
 export interface State extends EntityState<BrokerStaffEntity> {
   selectedId?: string | number; // which BrokerStaff record has been selected
@@ -18,7 +23,9 @@ export interface BrokerStaffPartialState {
 
 export const brokerStaffAdapter: EntityAdapter<BrokerStaffEntity> = createEntityAdapter<
   BrokerStaffEntity
->();
+>({
+  selectId: selectBrokerId,
+});
 
 export const initialState: State = brokerStaffAdapter.getInitialState({
   // set initial required properties
@@ -33,7 +40,7 @@ const brokerStaffReducer = createReducer(
     error: null,
   })),
   on(BrokerStaffActions.loadBrokerStaffSuccess, (state, { brokerStaff }) =>
-    brokerStaffAdapter.addAll(brokerStaff, { ...state, loaded: true })
+    brokerStaffAdapter.setAll(brokerStaff, { ...state, loaded: true })
   ),
   on(BrokerStaffActions.loadBrokerStaffFailure, (state, { error }) => ({
     ...state,
