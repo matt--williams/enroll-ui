@@ -23,7 +23,8 @@
       "tags": ["type:theme", "scope:shared"]
     },
     "design-system": {
-      "tags": ["type:app", "scope:design-system"]
+      "tags": ["type:app", "scope:design-system"],
+      "implicitDependencies": ["theme"]
     },
     "design-system-e2e": {
       "tags": ["type:e2e", "scope:design-system"],
