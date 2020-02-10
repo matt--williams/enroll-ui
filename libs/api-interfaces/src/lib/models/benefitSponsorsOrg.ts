@@ -3,9 +3,9 @@ import { ApiPhone } from './phone';
 import { ApiOfficeAddress } from './address';
 import { ContactMethod } from './contactMethod';
 
-export interface ApiBenefitSponsorsOrganization {
+export interface BaseBenefitSponsorsOrganization {
   _id: string;
-  _type: string; // enum?
+  // _type: string; // enum?
   agency_id?: any;
   entity_kind: EntityKind;
   fein: string; // also number?
@@ -18,7 +18,7 @@ export interface ApiBenefitSponsorsOrganization {
   created_at: string;
   plan_design_author_ids?: any[];
   plan_design_subject_ids?: any[];
-  profiles: BaseOrganizationProfile[];
+  // profiles: BaseOrganizationProfile[];
 }
 
 export interface BaseOrganizationProfile {

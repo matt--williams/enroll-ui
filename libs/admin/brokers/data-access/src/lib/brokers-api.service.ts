@@ -3,9 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import {
-  ApiBenefitSponsorsOrganization,
-  ApiGeneralAgencyStaffRole,
-  ApiBrokerAgencyStaffRole,
+  GeneralAgencyStaff,
+  PrimaryBrokerStaff,
+  BrokerAgencyStaff,
+  BrokerAgency,
+  GeneralAgency,
 } from '@hbx/api-interfaces';
 
 @Injectable({
@@ -16,17 +18,24 @@ export class BrokersApiService {
 
   constructor(private http: HttpClient) {}
 
-  getAllBrokers(): Observable<ApiBenefitSponsorsOrganization[]> {
-    return this.http.get<ApiBenefitSponsorsOrganization[]>(
+  /**
+   * Retrieves all broker agencies and general agencies
+   */
+  getAllAgencies(): Observable<Array<BrokerAgency | GeneralAgency>> {
+    return this.http.get<Array<BrokerAgency | GeneralAgency>>(
       `${this.api}/brokers`
     );
   }
 
-  getAllBrokerStaff(): Observable<
-    [ApiGeneralAgencyStaffRole, ApiBrokerAgencyStaffRole]
+  /**
+   * Retrieves all broker staff, i.e. person objects that have one of three
+   * identified role properties
+   */
+  getAllAgencyStaff(): Observable<
+    Array<GeneralAgencyStaff | PrimaryBrokerStaff | BrokerAgencyStaff>
   > {
-    return this.http.get<[ApiGeneralAgencyStaffRole, ApiBrokerAgencyStaffRole]>(
-      `${this.api}/brokers/broker-staff`
-    );
+    return this.http.get<
+      Array<GeneralAgencyStaff | PrimaryBrokerStaff | BrokerAgencyStaff>
+    >(`${this.api}/brokers/broker-staff`);
   }
 }
