@@ -17,7 +17,24 @@ import { AgencyStaffFacade } from './state/agency-staff/agency-staff.facade';
     CommonModule,
 
     RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: BrokersFeatureShellComponent },
+      {
+        path: '',
+        component: BrokersFeatureShellComponent,
+        children: [
+          {
+            path: 'agency-staff',
+            loadChildren: () =>
+              import('./agency-staff/agency-staff.module').then(
+                m => m.AgencyStaffModule
+              ),
+          },
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'agency-staff',
+          },
+        ],
+      },
     ]),
 
     // NgRx Feature Module Setup
