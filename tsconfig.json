@@ -27,10 +27,12 @@
     "paths": {
       "@hbx/theme": ["libs/theme/src/index.ts"],
       "@hbx/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@hbx/admin/brokers/data-access": [
-        "libs/admin/brokers/data-access/src/index.ts"
+      "@hbx/admin/agencies/data-access": [
+        "libs/admin/agencies/data-access/src/index.ts"
       ],
-      "@hbx/admin/brokers/feature": ["libs/admin/brokers/feature/src/index.ts"],
+      "@hbx/admin/agencies/feature": [
+        "libs/admin/agencies/feature/src/index.ts"
+      ],
       "@hbx/admin/shared/view-models": [
         "libs/admin/shared/view-models/src/index.ts"
       ],

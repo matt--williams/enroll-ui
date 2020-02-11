@@ -12,8 +12,8 @@ function selectAgencyId(a: AgenciesEntity): string {
 }
 
 export interface State extends EntityState<AgenciesEntity> {
-  selectedId?: string | number; // which Brokers record has been selected
-  loaded: boolean; // has the Brokers list been loaded
+  selectedId?: string | number; // which Agencies record has been selected
+  loaded: boolean; // has the Agencies list been loaded
   error?: string | null; // last none error (if any)
 }
 

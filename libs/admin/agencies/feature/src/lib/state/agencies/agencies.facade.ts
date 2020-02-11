@@ -7,8 +7,8 @@ import * as AgenciesSelectors from './agencies.selectors';
 @Injectable()
 export class AgenciesFacade {
   loaded$ = this.store.pipe(select(AgenciesSelectors.getAgenciesLoaded));
-  allBrokers$ = this.store.pipe(select(AgenciesSelectors.getAllAgencies));
-  selectedBrokers$ = this.store.pipe(select(AgenciesSelectors.getSelected));
+  allAgencies$ = this.store.pipe(select(AgenciesSelectors.getAllAgencies));
+  selectedAgency$ = this.store.pipe(select(AgenciesSelectors.getSelected));
 
   constructor(private store: Store<fromAgencies.AgenciesPartialState>) {}
 

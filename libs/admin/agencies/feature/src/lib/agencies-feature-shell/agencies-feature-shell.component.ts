@@ -4,11 +4,11 @@ import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
 import { loadAgencyStaff } from '../state/agency-staff/agency-staff.actions';
 
 @Component({
-  selector: 'hbx-brokers-feature-shell',
-  templateUrl: './brokers-feature-shell.component.html',
+  selector: 'hbx-agencies-feature-shell',
+  templateUrl: './agencies-feature-shell.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BrokersFeatureShellComponent implements OnInit {
+export class AgenciesFeatureShellComponent implements OnInit {
   constructor(private agencyStaffFacade: AgencyStaffFacade) {}
 
   ngOnInit() {

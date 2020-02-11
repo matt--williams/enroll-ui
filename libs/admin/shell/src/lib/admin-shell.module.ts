@@ -4,7 +4,10 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreRouterConnectingModule, DefaultRouterStateSerializer } from '@ngrx/router-store';
+import {
+  StoreRouterConnectingModule,
+  DefaultRouterStateSerializer,
+} from '@ngrx/router-store';
 import { NxModule } from '@nrwl/angular';
 import { AdminShellComponent } from './admin-shell/admin-shell.component';
 
@@ -16,15 +19,15 @@ import { AdminShellComponent } from './admin-shell/admin-shell.component';
     RouterModule.forRoot(
       [
         {
-          path: 'brokers',
+          path: 'agencies',
           loadChildren: () =>
-            import('@hbx/admin/brokers/feature').then(
-              module => module.AdminBrokersFeatureModule
+            import('@hbx/admin/agencies/feature').then(
+              module => module.AdminAgenciesFeatureModule
             ),
         },
         {
           path: '',
-          redirectTo: 'brokers',
+          redirectTo: 'agencies',
           pathMatch: 'full',
         },
       ],
@@ -45,7 +48,9 @@ import { AdminShellComponent } from './admin-shell/admin-shell.component';
     ),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument(),
-    StoreRouterConnectingModule.forRoot({ serializer: DefaultRouterStateSerializer }),
+    StoreRouterConnectingModule.forRoot({
+      serializer: DefaultRouterStateSerializer,
+    }),
   ],
   declarations: [AdminShellComponent],
   exports: [AdminShellComponent],

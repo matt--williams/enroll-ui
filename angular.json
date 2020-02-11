@@ -324,31 +324,31 @@
         }
       }
     },
-    "admin-brokers-data-access": {
+    "admin-agencies-data-access": {
       "projectType": "library",
-      "root": "libs/admin/brokers/data-access",
-      "sourceRoot": "libs/admin/brokers/data-access/src",
+      "root": "libs/admin/agencies/data-access",
+      "sourceRoot": "libs/admin/agencies/data-access/src",
       "prefix": "hbx",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/admin/brokers/data-access/tsconfig.lib.json",
-              "libs/admin/brokers/data-access/tsconfig.spec.json"
+              "libs/admin/agencies/data-access/tsconfig.lib.json",
+              "libs/admin/agencies/data-access/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!libs/admin/brokers/data-access/**"
+              "!libs/admin/agencies/data-access/**"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/admin/brokers/data-access/jest.config.js",
-            "tsConfig": "libs/admin/brokers/data-access/tsconfig.spec.json",
-            "setupFile": "libs/admin/brokers/data-access/src/test-setup.ts"
+            "jestConfig": "libs/admin/agencies/data-access/jest.config.js",
+            "tsConfig": "libs/admin/agencies/data-access/tsconfig.spec.json",
+            "setupFile": "libs/admin/agencies/data-access/src/test-setup.ts"
           }
         }
       },
@@ -358,28 +358,28 @@
         }
       }
     },
-    "admin-brokers-feature": {
+    "admin-agencies-feature": {
       "projectType": "library",
-      "root": "libs/admin/brokers/feature",
-      "sourceRoot": "libs/admin/brokers/feature/src",
+      "root": "libs/admin/agencies/feature",
+      "sourceRoot": "libs/admin/agencies/feature/src",
       "prefix": "hbx",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/admin/brokers/feature/tsconfig.lib.json",
-              "libs/admin/brokers/feature/tsconfig.spec.json"
+              "libs/admin/agencies/feature/tsconfig.lib.json",
+              "libs/admin/agencies/feature/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/admin/brokers/feature/**"]
+            "exclude": ["**/node_modules/**", "!libs/admin/agencies/feature/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/admin/brokers/feature/jest.config.js",
-            "tsConfig": "libs/admin/brokers/feature/tsconfig.spec.json",
-            "setupFile": "libs/admin/brokers/feature/src/test-setup.ts"
+            "jestConfig": "libs/admin/agencies/feature/jest.config.js",
+            "tsConfig": "libs/admin/agencies/feature/tsconfig.spec.json",
+            "setupFile": "libs/admin/agencies/feature/src/test-setup.ts"
           }
         }
       },

@@ -3,7 +3,7 @@ import { createEffect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
 
-import { AgenciesApiService } from '@hbx/admin/brokers/data-access';
+import { AgenciesApiService } from '@hbx/admin/agencies/data-access';
 
 import * as fromAgencies from './agencies.reducer';
 import * as AgenciesActions from './agencies.actions';

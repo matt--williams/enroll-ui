@@ -33,10 +33,10 @@
     "api-interfaces": {
       "tags": ["type:util", "scope:shared"]
     },
-    "admin-brokers-data-access": {
+    "admin-agencies-data-access": {
       "tags": ["type:data-access", "scope:admin"]
     },
-    "admin-brokers-feature": {
+    "admin-agencies-feature": {
       "tags": ["type:feature", "scope:admin"]
     },
     "admin-shared-view-models": {

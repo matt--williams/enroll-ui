@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromAgencies from './state/agencies/agencies.reducer';
 import { AgenciesEffects } from './state/agencies/agencies.effects';
 import { AgenciesFacade } from './state/agencies/agencies.facade';
-import { BrokersFeatureShellComponent } from './brokers-feature-shell/brokers-feature-shell.component';
+import { AgenciesFeatureShellComponent } from './agencies-feature-shell/agencies-feature-shell.component';
 import * as fromAgencyStaff from './state/agency-staff/agency-staff.reducer';
 import { AgencyStaffEffects } from './state/agency-staff/agency-staff.effects';
 import { AgencyStaffFacade } from './state/agency-staff/agency-staff.facade';
@@ -19,7 +19,7 @@ import { AgencyStaffFacade } from './state/agency-staff/agency-staff.facade';
     RouterModule.forChild([
       {
         path: '',
-        component: BrokersFeatureShellComponent,
+        component: AgenciesFeatureShellComponent,
         children: [
           {
             path: 'agency-staff',
@@ -51,6 +51,6 @@ import { AgencyStaffFacade } from './state/agency-staff/agency-staff.facade';
     EffectsModule.forFeature([AgencyStaffEffects]),
   ],
   providers: [AgenciesFacade, AgencyStaffFacade],
-  declarations: [BrokersFeatureShellComponent],
+  declarations: [AgenciesFeatureShellComponent],
 })
-export class AdminBrokersFeatureModule {}
+export class AdminAgenciesFeatureModule {}
