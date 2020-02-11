@@ -11,9 +11,13 @@ function selectAgencyStaffId(a: AgencyStaffEntity): string {
   return a._id;
 }
 
+function sortStaff(a: AgencyStaffEntity, b: AgencyStaffEntity): number {
+  return a.last_name.localeCompare(b.last_name);
+}
+
 export interface State extends EntityState<AgencyStaffEntity> {
-  selectedId?: string | number; // which BrokerStaff record has been selected
-  loaded: boolean; // has the BrokerStaff list been loaded
+  selectedId?: string | number; // which AgencyStaff record has been selected
+  loaded: boolean; // has the AgencyStaff list been loaded
   error?: string | null; // last none error (if any)
 }
 
@@ -25,6 +29,7 @@ export const agencyStaffAdapter: EntityAdapter<AgencyStaffEntity> = createEntity
   AgencyStaffEntity
 >({
   selectId: selectAgencyStaffId,
+  sortComparer: sortStaff,
 });
 
 export const initialState: State = agencyStaffAdapter.getInitialState({
@@ -39,10 +44,8 @@ const agencyStaffReducer = createReducer(
     loaded: false,
     error: null,
   })),
-  on(
-    AgencyStaffActions.loadAgencyStaffSuccess,
-    (state, { agencyStaff: brokerStaff }) =>
-      agencyStaffAdapter.setAll(brokerStaff, { ...state, loaded: true })
+  on(AgencyStaffActions.loadAgencyStaffSuccess, (state, { agencyStaff }) =>
+    agencyStaffAdapter.setAll(agencyStaff, { ...state, loaded: true })
   ),
   on(AgencyStaffActions.loadAgencyStaffFailure, (state, { error }) => ({
     ...state,

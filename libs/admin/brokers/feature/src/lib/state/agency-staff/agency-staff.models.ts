@@ -1,11 +1,14 @@
 // Eventually use this file as a View Model entity interface
 
-import { ApiBasePerson, AgencyStaffRole } from '@hbx/api-interfaces';
+import {
+  ApiBasePerson,
+  AgencyStaffRole,
+  PrimaryBrokerStaff,
+  BrokerAgencyStaff,
+  GeneralAgencyStaff,
+} from '@hbx/api-interfaces';
 
-/**
- * Interface for the 'AgencyStaff' data
- */
-export interface AgencyStaffEntity extends ApiBasePerson {
+export interface AgencyStaffVM extends ApiBasePerson {
   staffRoles: StaffRole[];
 }
 
@@ -31,3 +34,8 @@ export interface StateTransitionHistory {
   updated_at?: Date;
   created_at?: Date;
 }
+
+export type AgencyStaffEntity =
+  | PrimaryBrokerStaff
+  | BrokerAgencyStaff
+  | GeneralAgencyStaff;
