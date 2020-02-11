@@ -34,5 +34,6 @@ export class AgenciesApiService {
     return this.http.get<
       Array<GeneralAgencyStaff | PrimaryBrokerStaff | BrokerAgencyStaff>
     >(`${this.api}/agencies/agency-staff`);
+    // .pipe(tap(console.log));
   }
 }

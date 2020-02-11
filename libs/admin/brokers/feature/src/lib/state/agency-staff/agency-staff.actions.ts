@@ -1,11 +1,19 @@
 import { createAction, props } from '@ngrx/store';
-import { AgencyStaffEntity } from './agency-staff.models';
+import {
+  PrimaryBrokerStaff,
+  GeneralAgencyStaff,
+  BrokerAgencyStaff,
+} from '@hbx/api-interfaces';
 
 export const loadAgencyStaff = createAction('[AgencyStaff] Load AgencyStaff');
 
 export const loadAgencyStaffSuccess = createAction(
   '[AgencyStaff] Load AgencyStaff Success',
-  props<{ agencyStaff: AgencyStaffEntity[] }>()
+  props<{
+    agencyStaff: Array<
+      PrimaryBrokerStaff | GeneralAgencyStaff | BrokerAgencyStaff
+    >;
+  }>()
 );
 
 export const loadAgencyStaffFailure = createAction(

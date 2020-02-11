@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { createEffect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
+import { map, tap } from 'rxjs/operators';
+
+import { AgenciesApiService } from '@hbx/admin/brokers/data-access';
 
 import * as fromAgencyStaff from './agency-staff.reducer';
 import * as AgencyStaffActions from './agency-staff.actions';
@@ -13,13 +16,17 @@ export class AgencyStaffEffects {
         _action: ReturnType<typeof AgencyStaffActions.loadAgencyStaff>,
         _state: fromAgencyStaff.AgencyStaffPartialState
       ) => {
-        // Your custom service 'load' logic goes here. For now just return a success action...
-        return AgencyStaffActions.loadAgencyStaffSuccess({ agencyStaff: [] });
+        console.log('EFFECT RUNNING');
+        return this.agenciesApiService.getAllAgencyStaff().pipe(
+          tap(agencyStaff => console.log({ agencyStaff })),
+          map(agencyStaff =>
+            AgencyStaffActions.loadAgencyStaffSuccess({ agencyStaff })
+          )
+        );
       },
-
       onError: (
         _action: ReturnType<typeof AgencyStaffActions.loadAgencyStaff>,
-        error
+        error: any
       ) => {
         console.error('Error', error);
         return AgencyStaffActions.loadAgencyStaffFailure({ error });
@@ -28,9 +35,9 @@ export class AgencyStaffEffects {
   );
 
   constructor(
-    // private actions$: Actions,
     private dataPersistence: DataPersistence<
       fromAgencyStaff.AgencyStaffPartialState
-    >
+    >,
+    private agenciesApiService: AgenciesApiService
   ) {}
 }

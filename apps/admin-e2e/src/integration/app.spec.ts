@@ -11,7 +11,6 @@ describe('brokers and broker staff', () => {
   });
 
   it('should display welcome message', () => {
-    cy.wait('@agencies');
     cy.wait('@agencyStaff');
   });
 });
