@@ -1,7 +1,7 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
-import * as BrokersActions from './brokers.actions';
+import * as BrokersActions from './agencies.actions';
 import { BaseBenefitSponsorsOrganization } from '@hbx/api-interfaces';
 
 export const BROKERS_FEATURE_KEY = 'brokers';

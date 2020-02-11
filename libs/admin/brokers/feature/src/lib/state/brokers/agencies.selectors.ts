@@ -4,7 +4,7 @@ import {
   State,
   BrokersPartialState,
   brokersAdapter,
-} from './brokers.reducer';
+} from './agencies.reducer';
 
 // Lookup the 'Brokers' feature state managed by NgRx
 export const getBrokersState = createFeatureSelector<

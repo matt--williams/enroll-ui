@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 import { ApiBenefitSponsorsOrganization } from '@hbx/api-interfaces';
 
-import * as fromBrokers from './brokers.reducer';
-import * as BrokersSelectors from './brokers.selectors';
+import * as fromBrokers from './agencies.reducer';
+import * as BrokersSelectors from './agencies.selectors';
 
 @Injectable()
 export class BrokersFacade {

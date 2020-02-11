@@ -5,8 +5,8 @@ import { map } from 'rxjs/operators';
 
 import { BrokersApiService } from '@hbx/admin/brokers/data-access';
 
-import * as fromBrokers from './brokers.reducer';
-import * as BrokersActions from './brokers.actions';
+import * as fromBrokers from './agencies.reducer';
+import * as BrokersActions from './agencies.actions';
 
 @Injectable()
 export class BrokersEffects {
