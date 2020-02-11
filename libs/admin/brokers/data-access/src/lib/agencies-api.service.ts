@@ -6,8 +6,7 @@ import {
   GeneralAgencyStaff,
   PrimaryBrokerStaff,
   BrokerAgencyStaff,
-  BrokerAgency,
-  GeneralAgency,
+  Agency,
 } from '@hbx/api-interfaces';
 
 @Injectable({
@@ -21,10 +20,8 @@ export class AgenciesApiService {
   /**
    * Retrieves all agencies (broker and general)
    */
-  getAllAgencies(): Observable<Array<BrokerAgency | GeneralAgency>> {
-    return this.http.get<Array<BrokerAgency | GeneralAgency>>(
-      `${this.api}/agencies`
-    );
+  getAllAgencies(): Observable<Agency[]> {
+    return this.http.get<Agency[]>(`${this.api}/agencies`);
   }
 
   /**

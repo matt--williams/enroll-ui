@@ -14,21 +14,21 @@ export class AgenciesEffects {
     this.dataPersistence.fetch(AgenciesActions.loadAgencies, {
       run: (
         // action contains the payload if any
-        action: ReturnType<typeof AgenciesActions.loadAgencies>,
+        _action: ReturnType<typeof AgenciesActions.loadAgencies>,
         // state is brought in just in case we need anything from it
-        state: fromAgencies.AgenciesPartialState
+        _state: fromAgencies.AgenciesPartialState
       ) => {
         return this.brokersApiService
           .getAllAgencyStaff()
           .pipe(
-            map(agencies =>
+            map(_agencies =>
               AgenciesActions.loadAgenciesSuccess({ agencies: [] })
             )
           );
       },
 
       onError: (
-        action: ReturnType<typeof AgenciesActions.loadAgencies>,
+        _action: ReturnType<typeof AgenciesActions.loadAgencies>,
         error
       ) => {
         console.error('Error', error);
