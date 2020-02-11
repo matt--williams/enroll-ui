@@ -1,6 +1,6 @@
 export * from './address';
 export * from './brokerAgencyStaffRole';
-export * from './benefitSponsorsOrg';
+export * from './organization';
 export * from './contactMethod';
 export * from './email';
 export * from './inbox';
@@ -14,5 +14,4 @@ export * from './generalAgencyStaff';
 export * from './generalAgencyStaffRole';
 export * from './brokerAgencyProfile';
 export * from './generalAgencyProfile';
-export * from './generalAgency';
-export * from './brokerAgency';
+export * from './agency';

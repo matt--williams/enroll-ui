@@ -2,16 +2,16 @@ import { createReducer, on, Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import * as AgenciesActions from './agencies.actions';
-import { BaseBenefitSponsorsOrganization } from '@hbx/api-interfaces';
+import { AgenciesEntity } from './agencies.models';
 
 export const AGENCIES_FEATURE_KEY = 'agencies';
 
-function selectAgencyId(a: BaseBenefitSponsorsOrganization): string {
+function selectAgencyId(a: AgenciesEntity): string {
   //In this case this would be optional since primary key is id
   return a._id;
 }
 
-export interface State extends EntityState<BaseBenefitSponsorsOrganization> {
+export interface State extends EntityState<AgenciesEntity> {
   selectedId?: string | number; // which Brokers record has been selected
   loaded: boolean; // has the Brokers list been loaded
   error?: string | null; // last none error (if any)
@@ -21,8 +21,8 @@ export interface AgenciesPartialState {
   readonly [AGENCIES_FEATURE_KEY]: State;
 }
 
-export const agenciesAdapter: EntityAdapter<BaseBenefitSponsorsOrganization> = createEntityAdapter<
-  BaseBenefitSponsorsOrganization
+export const agenciesAdapter: EntityAdapter<AgenciesEntity> = createEntityAdapter<
+  AgenciesEntity
 >({
   selectId: selectAgencyId,
 });

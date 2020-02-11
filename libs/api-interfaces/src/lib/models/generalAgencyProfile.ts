@@ -1,4 +1,4 @@
-import { BaseOrganizationProfile } from './benefitSponsorsOrg';
+import { BaseOrganizationProfile } from './organization';
 
 export interface GeneralAgencyProfile extends BaseOrganizationProfile {
   _id: string;

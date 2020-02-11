@@ -3,8 +3,9 @@ import { ApiPhone } from './phone';
 import { ApiOfficeAddress } from './address';
 import { ContactMethod } from './contactMethod';
 
-export interface BaseBenefitSponsorsOrganization {
+export interface BaseOrganization {
   _id: string;
+  _type: string;
   agency_id?: any;
   entity_kind: EntityKind;
   fein: string; // also number?

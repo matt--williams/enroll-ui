@@ -1,10 +1,13 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+
 import {
   AGENCIES_FEATURE_KEY,
   State,
   AgenciesPartialState,
   agenciesAdapter,
 } from './agencies.reducer';
+import { AgenciesEntity } from './agencies.models';
+import { isGeneralAgency, isBrokerAgency } from '../../utils/checkAgencyType';
 
 // Lookup the 'Agencies' feature state managed by NgRx
 export const getAgenciesState = createFeatureSelector<
@@ -42,4 +45,14 @@ export const getSelected = createSelector(
   getAgenciesEntities,
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
+);
+
+export const getGeneralAgencies = createSelector(
+  getAllAgencies,
+  (agencies: AgenciesEntity[]) => agencies.filter(isGeneralAgency)
+);
+
+export const getBrokerAgencies = createSelector(
+  getAllAgencies,
+  (agencies: AgenciesEntity[]) => agencies.filter(isBrokerAgency)
 );

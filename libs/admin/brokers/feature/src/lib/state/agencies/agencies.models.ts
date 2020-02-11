@@ -1,11 +1,11 @@
-import { EntityKind } from '@hbx/api-interfaces';
+import { EntityKind, Agency } from '@hbx/api-interfaces';
 import { OrganizationProfile } from '@hbx/admin/shared/view-models';
 
 /**
  * Interface for the 'Brokers' data
  * Eventually use this as the BrokersEntityModel
  */
-export interface AgenciesEntity {
+export interface AgenciesEntityVM {
   id: string | number; // Primary ID
   type: string;
   agencyId?: string;
@@ -25,3 +25,5 @@ export interface AgenciesEntity {
   planDesignAuthorIds?: any[];
   planDesignSubjectIds?: any[];
 }
+
+export type AgenciesEntity = Agency;

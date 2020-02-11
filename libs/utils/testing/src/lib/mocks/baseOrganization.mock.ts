@@ -1,18 +1,15 @@
 import * as faker from 'faker';
-import {
-  BaseBenefitSponsorsOrganization,
-  EntityKind,
-} from '@hbx/api-interfaces';
+import { BaseOrganization, EntityKind } from '@hbx/api-interfaces';
 
 /**
  * Returns a BenefitSponsorsOrganization minus the profiles property
  */
-export function mockBaseBenefitSponsorsOrg(): BaseBenefitSponsorsOrganization {
+export function mockBaseBenefitSponsorsOrg(): BaseOrganization {
   const now = new Date();
   const created = faker.date.recent();
   const updated = faker.date.between(created, now);
 
-  const baseOrganization: BaseBenefitSponsorsOrganization = {
+  const baseOrganization: BaseOrganization = {
     _id: faker.random.uuid(),
     entity_kind: EntityKind.SCorporation,
     fein: faker.random.number({ min: 111111111, max: 999999999 }).toString(),
