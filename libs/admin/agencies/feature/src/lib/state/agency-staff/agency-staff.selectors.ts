@@ -88,6 +88,15 @@ export const getBrokerAgencyStaff = createSelector(
     agencyStaff.filter(isBrokerAgencyStaff)
 );
 
+export const getAllNonPrimaryAgencyStaff = createSelector(
+  getBrokerAgencyStaff,
+  getNonPrimaryGeneralAgencyStaff,
+  (brokerAgencyStaff, generalAgencyStaff) => [
+    ...brokerAgencyStaff,
+    ...generalAgencyStaff,
+  ]
+);
+
 // Putting this in entity form allows us to easily select a broker
 // by their id instead of using array methods
 export const primaryBrokerEntities = createSelector(

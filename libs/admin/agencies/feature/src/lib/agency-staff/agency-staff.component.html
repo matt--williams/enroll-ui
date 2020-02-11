@@ -1,1 +1,7 @@
-<p>agency-staff works!</p>
+<h1>Agency Staff</h1>
+
+<ng-container
+  *ngFor="let staff of agencyStaffFacade.nonPrimaryAgencyStaff$ | async"
+>
+  {{ staff | json }}
+</ng-container>
