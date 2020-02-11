@@ -8,16 +8,16 @@ import {
   GeneralAgencyStaffRoleState,
 } from '@hbx/api-interfaces';
 import {
-  BrokerStaffEntity,
+  AgencyStaffEntity,
   AgencyRoleState,
   StaffRole,
   StateTransitionHistory,
-} from '../state/broker-staff/broker-staff.models';
+} from '../state/broker-staff/agency-staff.models';
 import { isGeneralAgencyStaff, isPrimaryBroker } from './checkStaffType';
 
 export function convertStaff(
   agencyStaff: BrokerAgencyStaff | PrimaryBrokerStaff | GeneralAgencyStaff
-): BrokerStaffEntity {
+): AgencyStaffEntity {
   const {
     broker_role,
     broker_agency_staff_roles,
@@ -25,7 +25,7 @@ export function convertStaff(
     ...basePerson
   } = agencyStaff;
 
-  const brokerStaffEntity: BrokerStaffEntity = {
+  const brokerStaffEntity: AgencyStaffEntity = {
     ...basePerson,
     staffRoles: staffRoles(agencyStaff),
   };

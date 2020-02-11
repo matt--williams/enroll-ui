@@ -8,9 +8,9 @@ import * as fromBrokers from './state/brokers/brokers.reducer';
 import { BrokersEffects } from './state/brokers/brokers.effects';
 import { BrokersFacade } from './state/brokers/brokers.facade';
 import { BrokersFeatureShellComponent } from './brokers-feature-shell/brokers-feature-shell.component';
-import * as fromBrokerStaff from './state/broker-staff/broker-staff.reducer';
-import { BrokerStaffEffects } from './state/broker-staff/broker-staff.effects';
-import { BrokerStaffFacade } from './state/broker-staff/broker-staff.facade';
+import * as fromBrokerStaff from './state/broker-staff/agency-staff.reducer';
+import { AgencyStaffEffects } from './state/broker-staff/agency-staff.effects';
+import { AgencyStaffFacade } from './state/broker-staff/agency-staff.facade';
 
 @NgModule({
   imports: [
@@ -27,12 +27,12 @@ import { BrokerStaffFacade } from './state/broker-staff/broker-staff.facade';
     ),
     EffectsModule.forFeature([BrokersEffects]),
     StoreModule.forFeature(
-      fromBrokerStaff.BROKERSTAFF_FEATURE_KEY,
+      fromBrokerStaff.AGENCYSTAFF_FEATURE_KEY,
       fromBrokerStaff.reducer
     ),
-    EffectsModule.forFeature([BrokerStaffEffects]),
+    EffectsModule.forFeature([AgencyStaffEffects]),
   ],
-  providers: [BrokersFacade, BrokerStaffFacade],
+  providers: [BrokersFacade, AgencyStaffFacade],
   declarations: [BrokersFeatureShellComponent],
 })
 export class AdminBrokersFeatureModule {}

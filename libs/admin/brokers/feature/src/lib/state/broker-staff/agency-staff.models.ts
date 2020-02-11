@@ -3,9 +3,9 @@
 import { ApiBasePerson, AgencyStaffRole } from '@hbx/api-interfaces';
 
 /**
- * Interface for the 'BrokerStaff' data
+ * Interface for the 'AgencyStaff' data
  */
-export interface BrokerStaffEntity extends ApiBasePerson {
+export interface AgencyStaffEntity extends ApiBasePerson {
   staffRoles: StaffRole[];
 }
 

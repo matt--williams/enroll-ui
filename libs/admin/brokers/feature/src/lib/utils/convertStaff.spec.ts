@@ -14,7 +14,7 @@ import { convertStaff } from './convertStaff';
 import {
   StaffRole,
   AgencyRoleState,
-} from '../state/broker-staff/broker-staff.models';
+} from '../state/broker-staff/agency-staff.models';
 
 const brokerStaff: BrokerAgencyStaff = {
   _id: '51b151a1-1562-4844-bcd6-aa0754eb416b',
