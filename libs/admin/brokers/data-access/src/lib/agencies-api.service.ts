@@ -13,22 +13,22 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class BrokersApiService {
+export class AgenciesApiService {
   private api = 'api/v1';
 
   constructor(private http: HttpClient) {}
 
   /**
-   * Retrieves all broker agencies and general agencies
+   * Retrieves all agencies (broker and general)
    */
   getAllAgencies(): Observable<Array<BrokerAgency | GeneralAgency>> {
     return this.http.get<Array<BrokerAgency | GeneralAgency>>(
-      `${this.api}/brokers`
+      `${this.api}/agencies`
     );
   }
 
   /**
-   * Retrieves all broker staff, i.e. person objects that have one of three
+   * Retrieves all agency staff, i.e. person objects that have one of three
    * identified role properties
    */
   getAllAgencyStaff(): Observable<
@@ -36,6 +36,6 @@ export class BrokersApiService {
   > {
     return this.http.get<
       Array<GeneralAgencyStaff | PrimaryBrokerStaff | BrokerAgencyStaff>
-    >(`${this.api}/brokers/broker-staff`);
+    >(`${this.api}/agencies/agency-staff`);
   }
 }

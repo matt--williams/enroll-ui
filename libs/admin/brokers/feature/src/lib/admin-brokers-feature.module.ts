@@ -4,13 +4,13 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import * as fromBrokers from './state/brokers/agencies.reducer';
-import { AgenciesEffects } from './state/brokers/agencies.effects';
-import { BrokersFacade } from './state/brokers/agencies.facade';
+import * as fromAgencies from './state/agencies/agencies.reducer';
+import { AgenciesEffects } from './state/agencies/agencies.effects';
+import { AgenciesFacade } from './state/agencies/agencies.facade';
 import { BrokersFeatureShellComponent } from './brokers-feature-shell/brokers-feature-shell.component';
-import * as fromBrokerStaff from './state/broker-staff/agency-staff.reducer';
-import { AgencyStaffEffects } from './state/broker-staff/agency-staff.effects';
-import { AgencyStaffFacade } from './state/broker-staff/agency-staff.facade';
+import * as fromAgencyStaff from './state/agency-staff/agency-staff.reducer';
+import { AgencyStaffEffects } from './state/agency-staff/agency-staff.effects';
+import { AgencyStaffFacade } from './state/agency-staff/agency-staff.facade';
 
 @NgModule({
   imports: [
@@ -22,17 +22,18 @@ import { AgencyStaffFacade } from './state/broker-staff/agency-staff.facade';
 
     // NgRx Feature Module Setup
     StoreModule.forFeature(
-      fromBrokers.AGENCIES_FEATURE_KEY,
-      fromBrokers.reducer
+      fromAgencies.AGENCIES_FEATURE_KEY,
+      fromAgencies.reducer
     ),
     EffectsModule.forFeature([AgenciesEffects]),
+
     StoreModule.forFeature(
-      fromBrokerStaff.AGENCYSTAFF_FEATURE_KEY,
-      fromBrokerStaff.reducer
+      fromAgencyStaff.AGENCYSTAFF_FEATURE_KEY,
+      fromAgencyStaff.reducer
     ),
     EffectsModule.forFeature([AgencyStaffEffects]),
   ],
-  providers: [BrokersFacade, AgencyStaffFacade],
+  providers: [AgenciesFacade, AgencyStaffFacade],
   declarations: [BrokersFeatureShellComponent],
 })
 export class AdminBrokersFeatureModule {}

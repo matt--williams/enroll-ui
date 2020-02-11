@@ -1,1 +1,1 @@
-export * from './lib/brokers-api.service';
+export * from './lib/agencies-api.service';

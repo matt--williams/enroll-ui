@@ -3,7 +3,7 @@ import { createEffect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
 
-import { BrokersApiService } from '@hbx/admin/brokers/data-access';
+import { AgenciesApiService } from '@hbx/admin/brokers/data-access';
 
 import * as fromAgencies from './agencies.reducer';
 import * as AgenciesActions from './agencies.actions';
@@ -39,6 +39,6 @@ export class AgenciesEffects {
 
   constructor(
     private dataPersistence: DataPersistence<fromAgencies.AgenciesPartialState>,
-    private brokersApiService: BrokersApiService
+    private brokersApiService: AgenciesApiService
   ) {}
 }

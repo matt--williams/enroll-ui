@@ -5,7 +5,7 @@ import * as fromAgencies from './agencies.reducer';
 import * as AgenciesSelectors from './agencies.selectors';
 
 @Injectable()
-export class BrokersFacade {
+export class AgenciesFacade {
   loaded$ = this.store.pipe(select(AgenciesSelectors.getAgenciesLoaded));
   allBrokers$ = this.store.pipe(select(AgenciesSelectors.getAllAgencies));
   selectedBrokers$ = this.store.pipe(select(AgenciesSelectors.getSelected));
