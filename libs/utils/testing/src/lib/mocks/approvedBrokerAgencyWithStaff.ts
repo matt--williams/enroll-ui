@@ -1,9 +1,9 @@
 import * as faker from 'faker/locale/en_US';
 
 import {
-  ApiBenefitSponsorsOrganization,
   BrokerAgencyStaff,
   PrimaryBrokerStaff,
+  Agency,
 } from '@hbx/api-interfaces';
 import {
   mockPrimaryBroker,
@@ -18,7 +18,7 @@ export interface MockBrokerAgencyOptions {
 }
 
 export interface ApprovedBrokerAgencyWithStaff {
-  brokerAgency: ApiBenefitSponsorsOrganization;
+  brokerAgency: Agency;
   primaryBroker: PrimaryBrokerStaff;
   brokerStaff: BrokerAgencyStaff[];
 }

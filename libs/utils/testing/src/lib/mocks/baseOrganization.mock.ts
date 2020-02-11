@@ -11,6 +11,7 @@ export function mockBaseBenefitSponsorsOrg(): BaseOrganization {
 
   const baseOrganization: BaseOrganization = {
     _id: faker.random.uuid(),
+    _type: `doesn't-matter-for-now`,
     entity_kind: EntityKind.SCorporation,
     fein: faker.random.number({ min: 111111111, max: 999999999 }).toString(),
     dba: faker.company.companyName(),
