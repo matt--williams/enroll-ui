@@ -5,40 +5,40 @@ import { map } from 'rxjs/operators';
 
 import { BrokersApiService } from '@hbx/admin/brokers/data-access';
 
-import * as fromBrokers from './agencies.reducer';
-import * as BrokersActions from './agencies.actions';
+import * as fromAgencies from './agencies.reducer';
+import * as AgenciesActions from './agencies.actions';
 
 @Injectable()
-export class BrokersEffects {
+export class AgenciesEffects {
   loadBrokers$ = createEffect(() =>
-    this.dataPersistence.fetch(BrokersActions.loadBrokers, {
+    this.dataPersistence.fetch(AgenciesActions.loadAgencies, {
       run: (
         // action contains the payload if any
-        action: ReturnType<typeof BrokersActions.loadBrokers>,
+        action: ReturnType<typeof AgenciesActions.loadAgencies>,
         // state is brought in just in case we need anything from it
-        state: fromBrokers.BrokersPartialState
+        state: fromAgencies.AgenciesPartialState
       ) => {
         return this.brokersApiService
           .getAllAgencyStaff()
           .pipe(
-            map(agencyStaff =>
-              BrokersActions.loadBrokersSuccess({ brokers: [] })
+            map(agencies =>
+              AgenciesActions.loadAgenciesSuccess({ agencies: [] })
             )
           );
       },
 
       onError: (
-        action: ReturnType<typeof BrokersActions.loadBrokers>,
+        action: ReturnType<typeof AgenciesActions.loadAgencies>,
         error
       ) => {
         console.error('Error', error);
-        return BrokersActions.loadBrokersFailure({ error });
+        return AgenciesActions.loadAgenciesFailure({ error });
       },
     })
   );
 
   constructor(
-    private dataPersistence: DataPersistence<fromBrokers.BrokersPartialState>,
+    private dataPersistence: DataPersistence<fromAgencies.AgenciesPartialState>,
     private brokersApiService: BrokersApiService
   ) {}
 }

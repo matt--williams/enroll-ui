@@ -1,10 +1,10 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
-import * as BrokersActions from './agencies.actions';
+import * as AgenciesActions from './agencies.actions';
 import { BaseBenefitSponsorsOrganization } from '@hbx/api-interfaces';
 
-export const BROKERS_FEATURE_KEY = 'brokers';
+export const AGENCIES_FEATURE_KEY = 'agencies';
 
 function selectAgencyId(a: BaseBenefitSponsorsOrganization): string {
   //In this case this would be optional since primary key is id
@@ -17,37 +17,37 @@ export interface State extends EntityState<BaseBenefitSponsorsOrganization> {
   error?: string | null; // last none error (if any)
 }
 
-export interface BrokersPartialState {
-  readonly [BROKERS_FEATURE_KEY]: State;
+export interface AgenciesPartialState {
+  readonly [AGENCIES_FEATURE_KEY]: State;
 }
 
-export const brokersAdapter: EntityAdapter<BaseBenefitSponsorsOrganization> = createEntityAdapter<
+export const agenciesAdapter: EntityAdapter<BaseBenefitSponsorsOrganization> = createEntityAdapter<
   BaseBenefitSponsorsOrganization
 >({
   selectId: selectAgencyId,
 });
 
-export const initialState: State = brokersAdapter.getInitialState({
+export const initialState: State = agenciesAdapter.getInitialState({
   // set initial required properties
   loaded: false,
 });
 
-const brokersReducer = createReducer(
+const agenciesReducer = createReducer(
   initialState,
-  on(BrokersActions.loadBrokers, state => ({
+  on(AgenciesActions.loadAgencies, state => ({
     ...state,
     loaded: false,
     error: null,
   })),
-  on(BrokersActions.loadBrokersSuccess, (state, { brokers }) =>
-    brokersAdapter.setAll(brokers, { ...state, loaded: true })
+  on(AgenciesActions.loadAgenciesSuccess, (state, { agencies }) =>
+    agenciesAdapter.setAll(agencies, { ...state, loaded: true })
   ),
-  on(BrokersActions.loadBrokersFailure, (state, { error }) => ({
+  on(AgenciesActions.loadAgenciesFailure, (state, { error }) => ({
     ...state,
     error,
   }))
 );
 
 export function reducer(state: State | undefined, action: Action) {
-  return brokersReducer(state, action);
+  return agenciesReducer(state, action);
 }

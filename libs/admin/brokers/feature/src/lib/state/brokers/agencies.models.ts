@@ -5,7 +5,7 @@ import { OrganizationProfile } from '@hbx/admin/shared/view-models';
  * Interface for the 'Brokers' data
  * Eventually use this as the BrokersEntityModel
  */
-export interface BrokersEntity {
+export interface AgenciesEntity {
   id: string | number; // Primary ID
   type: string;
   agencyId?: string;

@@ -1,21 +1,16 @@
 import { Injectable } from '@angular/core';
 import { select, Store, Action } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
-import { ApiBenefitSponsorsOrganization } from '@hbx/api-interfaces';
-
-import * as fromBrokers from './agencies.reducer';
-import * as BrokersSelectors from './agencies.selectors';
+import * as fromAgencies from './agencies.reducer';
+import * as AgenciesSelectors from './agencies.selectors';
 
 @Injectable()
 export class BrokersFacade {
-  loaded$ = this.store.pipe(select(BrokersSelectors.getBrokersLoaded));
-  allBrokers$: Observable<ApiBenefitSponsorsOrganization[]> = this.store.pipe(
-    select(BrokersSelectors.getAllBrokers)
-  );
-  selectedBrokers$ = this.store.pipe(select(BrokersSelectors.getSelected));
+  loaded$ = this.store.pipe(select(AgenciesSelectors.getAgenciesLoaded));
+  allBrokers$ = this.store.pipe(select(AgenciesSelectors.getAllAgencies));
+  selectedBrokers$ = this.store.pipe(select(AgenciesSelectors.getSelected));
 
-  constructor(private store: Store<fromBrokers.BrokersPartialState>) {}
+  constructor(private store: Store<fromAgencies.AgenciesPartialState>) {}
 
   dispatch(action: Action) {
     this.store.dispatch(action);

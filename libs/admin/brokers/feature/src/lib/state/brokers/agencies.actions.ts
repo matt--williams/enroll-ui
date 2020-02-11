@@ -1,14 +1,13 @@
 import { createAction, props } from '@ngrx/store';
-import { ApiBenefitSponsorsOrganization } from '@hbx/api-interfaces';
 
-export const loadBrokers = createAction('[Brokers] Load Brokers');
+export const loadAgencies = createAction('[Agencies] Load Agencies');
 
-export const loadBrokersSuccess = createAction(
-  '[Brokers] Load Brokers Success',
-  props<{ brokers: ApiBenefitSponsorsOrganization[] }>()
+export const loadAgenciesSuccess = createAction(
+  '[Agencies] Load Agencies Success',
+  props<{ agencies: ApiBenefitSponsorsOrganization[] }>()
 );
 
-export const loadBrokersFailure = createAction(
-  '[Brokers] Load Brokers Failure',
+export const loadAgenciesFailure = createAction(
+  '[Agencies] Load Agencies Failure',
   props<{ error: any }>()
 );

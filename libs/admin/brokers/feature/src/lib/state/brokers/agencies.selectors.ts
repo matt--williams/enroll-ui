@@ -1,45 +1,45 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import {
-  BROKERS_FEATURE_KEY,
+  AGENCIES_FEATURE_KEY,
   State,
-  BrokersPartialState,
-  brokersAdapter,
+  AgenciesPartialState,
+  agenciesAdapter,
 } from './agencies.reducer';
 
-// Lookup the 'Brokers' feature state managed by NgRx
-export const getBrokersState = createFeatureSelector<
-  BrokersPartialState,
+// Lookup the 'Agencies' feature state managed by NgRx
+export const getAgenciesState = createFeatureSelector<
+  AgenciesPartialState,
   State
->(BROKERS_FEATURE_KEY);
+>(AGENCIES_FEATURE_KEY);
 
-const { selectAll, selectEntities } = brokersAdapter.getSelectors();
+const { selectAll, selectEntities } = agenciesAdapter.getSelectors();
 
-export const getBrokersLoaded = createSelector(
-  getBrokersState,
+export const getAgenciesLoaded = createSelector(
+  getAgenciesState,
   (state: State) => state.loaded
 );
 
-export const getBrokersError = createSelector(
-  getBrokersState,
+export const getAgenciesError = createSelector(
+  getAgenciesState,
   (state: State) => state.error
 );
 
-export const getAllBrokers = createSelector(getBrokersState, (state: State) =>
+export const getAllAgencies = createSelector(getAgenciesState, (state: State) =>
   selectAll(state)
 );
 
-export const getBrokersEntities = createSelector(
-  getBrokersState,
+export const getAgenciesEntities = createSelector(
+  getAgenciesState,
   (state: State) => selectEntities(state)
 );
 
 export const getSelectedId = createSelector(
-  getBrokersState,
+  getAgenciesState,
   (state: State) => state.selectedId
 );
 
 export const getSelected = createSelector(
-  getBrokersEntities,
+  getAgenciesEntities,
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
 );
