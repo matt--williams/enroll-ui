@@ -12,20 +12,17 @@ import {
   isGeneralAgencyStaff,
   isPrimaryBroker,
 } from './checkStaffType';
-import { convertRoleState } from './convertStaff';
 import {
   PrimaryAgentVM,
   AssociationProfile,
   AgencyType,
-  AgencyAssociation,
   AgencyStaffVM,
-} from '../state/agency-staff/agency-staff.models';
+  AgencyAssociation,
+  Dictionary,
+} from '../shared/models';
+import { convertRoleState } from './convertStaff';
 
-export interface Dictionary<T> {
-  [id: string]: T;
-}
-
-export function createPrimaryBrokerDictionary(
+export function createPrimaryAgencyStaffDictionary(
   agencyStaff: Array<
     PrimaryBrokerStaff | GeneralAgencyStaff | BrokerAgencyStaff
   >
@@ -66,14 +63,14 @@ export function createPrimaryBrokerDictionary(
   };
 }
 
-export function createAssociationProfileDictionaryFromAgency(
+export function createAssociationProfileDictionaryFromSingleAgency(
   agency: Agency
 ): Dictionary<AssociationProfile> {
   const { _id, legal_name, profiles } = agency;
 
   const associationProfiles: AssociationProfile[] = profiles.map(profile => {
     return {
-      associationId: profile._id,
+      agencyProfileId: profile._id,
       agencyType:
         profile._type === 'BenefitSponsors::Organizations::GeneralAgencyProfile'
           ? AgencyType.General
@@ -87,7 +84,7 @@ export function createAssociationProfileDictionaryFromAgency(
     (dictionary, profile) => {
       return {
         ...dictionary,
-        [profile.associationId]: profile,
+        [profile.agencyProfileId]: profile,
       };
     },
     {}
@@ -103,7 +100,7 @@ export function associationProfileDictionary(
     (dictionary, agency) => {
       return {
         ...dictionary,
-        ...createAssociationProfileDictionaryFromAgency(agency),
+        ...createAssociationProfileDictionaryFromSingleAgency(agency),
       };
     },
     {}
@@ -127,6 +124,7 @@ export function createGeneralAgencyPrimaryAgent(
       brokerRoleId: primaryRole._id,
       agencyProfileId: primaryRole.benefit_sponsors_general_agency_profile_id,
       fullName: `${first_name} ${last_name}`,
+      npn: primaryRole.npn,
     },
   };
 }
@@ -141,37 +139,9 @@ export function createBrokerAgencyPrimaryAgent(
       brokerRoleId: broker_role._id,
       agencyProfileId: broker_role.benefit_sponsors_broker_agency_profile_id,
       fullName: `${first_name} ${last_name}`,
+      npn: broker_role.npn,
     },
   };
-}
-
-export function createGeneralAgencyAssociations(
-  roles: ApiGeneralAgencyStaffRole[],
-  associationProfiles: Dictionary<AssociationProfile>,
-  primaryAgents: Dictionary<PrimaryAgentVM>
-): AgencyAssociation[] {
-  const associations: AgencyAssociation[] = roles.map(
-    (role: ApiGeneralAgencyStaffRole) => {
-      const {
-        benefit_sponsors_general_agency_profile_id: agencyProfileId,
-      } = role;
-
-      const associationProfile: AssociationProfile =
-        associationProfiles[agencyProfileId];
-
-      const primaryAgentVM: PrimaryAgentVM = primaryAgents[agencyProfileId];
-
-      const association: AgencyAssociation = {
-        ...associationProfile,
-        primaryAgent: primaryAgentVM,
-        currentState: convertRoleState(role.aasm_state),
-      };
-
-      return association;
-    }
-  );
-
-  return associations;
 }
 
 export function createBrokerAgencyAssociations(
@@ -203,12 +173,39 @@ export function createBrokerAgencyAssociations(
   return associations;
 }
 
+export function createGeneralAgencyAssociations(
+  roles: ApiGeneralAgencyStaffRole[],
+  associationProfiles: Dictionary<AssociationProfile>,
+  primaryAgents: Dictionary<PrimaryAgentVM>
+): AgencyAssociation[] {
+  const associations: AgencyAssociation[] = roles.map(
+    (role: ApiGeneralAgencyStaffRole) => {
+      const {
+        benefit_sponsors_general_agency_profile_id: agencyProfileId,
+      } = role;
+
+      const associationProfile: AssociationProfile =
+        associationProfiles[agencyProfileId];
+
+      const primaryAgentVM: PrimaryAgentVM = primaryAgents[agencyProfileId];
+
+      const association: AgencyAssociation = {
+        ...associationProfile,
+        primaryAgent: primaryAgentVM,
+        currentState: convertRoleState(role.aasm_state),
+      };
+
+      return association;
+    }
+  );
+
+  return associations;
+}
+
 export function createBrokerAgencyStaffVM(
   agencyStaff: BrokerAgencyStaff,
-  agencies: Agency[],
-  primaryAgencyStaff: Array<
-    PrimaryBrokerStaff | GeneralAgencyStaff | BrokerAgencyStaff
-  >
+  agencyProfiles: Dictionary<AssociationProfile>,
+  primaryAgencyStaff: Dictionary<PrimaryAgentVM>
 ): AgencyStaffVM {
   const {
     first_name,
@@ -218,27 +215,22 @@ export function createBrokerAgencyStaffVM(
     hbx_id,
   } = agencyStaff;
 
-  const associationProfiles = associationProfileDictionary(agencies);
-  const primaryAgentVMs = createPrimaryBrokerDictionary(primaryAgencyStaff);
-
   return {
     agencyStaffId: _id,
     hbxId: hbx_id,
     fullName: `${first_name} ${last_name}`,
     agencyAssociations: createBrokerAgencyAssociations(
       roles,
-      associationProfiles,
-      primaryAgentVMs
+      agencyProfiles,
+      primaryAgencyStaff
     ),
   };
 }
 
-export function generalAgencyStaffVM(
+export function createGeneralAgencyStaffVM(
   agencyStaff: GeneralAgencyStaff,
-  agencies: Agency[],
-  primaryAgencyStaff: Array<
-    PrimaryBrokerStaff | GeneralAgencyStaff | BrokerAgencyStaff
-  >
+  agencyProfiles: Dictionary<AssociationProfile>,
+  primaryAgencyStaff: Dictionary<PrimaryAgentVM>
 ): AgencyStaffVM {
   const {
     first_name,
@@ -248,17 +240,42 @@ export function generalAgencyStaffVM(
     hbx_id,
   } = agencyStaff;
 
-  const associationProfiles = associationProfileDictionary(agencies);
-  const primaryAgentVMs = createPrimaryBrokerDictionary(primaryAgencyStaff);
-
   return {
     agencyStaffId: _id,
     hbxId: hbx_id,
     fullName: `${first_name} ${last_name}`,
     agencyAssociations: createGeneralAgencyAssociations(
       roles,
-      associationProfiles,
-      primaryAgentVMs
+      agencyProfiles,
+      primaryAgencyStaff
     ),
   };
+}
+
+export function createStaffVMs(
+  agencies: Agency[],
+  primaryAgencyStaff: Dictionary<PrimaryAgentVM>,
+  nonPrimaryAgencyStaff: Array<GeneralAgencyStaff | BrokerAgencyStaff>
+): AgencyStaffVM[] {
+  const agencyProfiles = associationProfileDictionary(agencies);
+
+  const agencyStaffVM: AgencyStaffVM[] = nonPrimaryAgencyStaff.map(
+    agencyStaff => {
+      if (isGeneralAgencyStaff(agencyStaff)) {
+        return createGeneralAgencyStaffVM(
+          agencyStaff,
+          agencyProfiles,
+          primaryAgencyStaff
+        );
+      } else {
+        return createBrokerAgencyStaffVM(
+          agencyStaff,
+          agencyProfiles,
+          primaryAgencyStaff
+        );
+      }
+    }
+  );
+
+  return agencyStaffVM;
 }

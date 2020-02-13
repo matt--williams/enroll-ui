@@ -1,5 +1,17 @@
 <h1>Agency Staff</h1>
 
-<!-- <ng-container *ngFor="let staff of agencyStaffVM$ | async">
-  {{ staff | json }}
+<!-- <ng-container *ngFor="let agency of agencyVMs$ | async">
+  <h2>{{ agency.agencyName }}</h2>
+  <div>{{ agency.primaryAgent.fullName }}</div>
+  <div>{{ agency.primaryAgent.npn }}</div>
 </ng-container> -->
+
+<div class="staff-container" *ngFor="let staff of agencyStaffVM$ | async">
+  <h2 class="hbx-heading-large">{{ staff.fullName }}</h2>
+  <span>{{ staff.hbxId }}</span>
+  <div style="display: flex;">
+    <div *ngFor="let association of staff.agencyAssociations">
+      {{ association.agencyName }} - {{ association.currentState }}
+    </div>
+  </div>
+</div>

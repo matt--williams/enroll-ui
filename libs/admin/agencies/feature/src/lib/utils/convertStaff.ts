@@ -9,12 +9,12 @@ import {
 } from '@hbx/api-interfaces';
 
 import {
-  AgencyRoleState,
   StaffRole,
   StateTransitionHistory,
   AgencyStaff,
 } from '../state/agency-staff/agency-staff.models';
 import { isGeneralAgencyStaff, isPrimaryBroker } from './checkStaffType';
+import { AgencyRoleState } from '../shared/models';
 
 export function convertStaff(
   agencyStaff: BrokerAgencyStaff | PrimaryBrokerStaff | GeneralAgencyStaff

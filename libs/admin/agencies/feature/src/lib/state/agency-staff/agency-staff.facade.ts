@@ -19,6 +19,10 @@ export class AgencyStaffFacade {
     select(AgencyStaffSelectors.getAllNonPrimaryAgencyStaff)
   );
 
+  primaryAgencyStaffEntities$ = this.store.pipe(
+    select(AgencyStaffSelectors.primaryAgencyStaffDictionary)
+  );
+
   constructor(private store: Store<fromAgencyStaff.AgencyStaffPartialState>) {}
 
   dispatch(action: Action) {

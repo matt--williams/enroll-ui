@@ -10,11 +10,10 @@ import {
   ProviderKind,
   BrokerRoleState,
 } from '@hbx/api-interfaces';
+
 import { convertStaff } from './convertStaff';
-import {
-  StaffRole,
-  AgencyRoleState,
-} from '../state/agency-staff/agency-staff.models';
+import { StaffRole } from '../state/agency-staff/agency-staff.models';
+import { AgencyRoleState } from '../shared/models';
 
 const brokerStaff: BrokerAgencyStaff = {
   _id: '51b151a1-1562-4844-bcd6-aa0754eb416b',

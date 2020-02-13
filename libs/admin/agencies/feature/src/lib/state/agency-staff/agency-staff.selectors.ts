@@ -19,6 +19,8 @@ import {
   isBrokerAgencyStaff,
   isPrimaryGeneralAgencyStaff,
 } from '../../utils/checkStaffType';
+import { createPrimaryAgencyStaffDictionary } from '../../utils/createAgencyStaffVM';
+import { Dictionary, PrimaryAgentVM } from '../../shared/models';
 
 // Lookup the 'AgencyStaff' feature state managed by NgRx
 export const getAgencyStaffState = createFeatureSelector<
@@ -123,4 +125,10 @@ export const generalAgencyPrimaryStaffEntities = createSelector(
         [staff._id]: staff,
       };
     }, {})
+);
+
+export const primaryAgencyStaffDictionary = createSelector(
+  getAllAgencyStaff,
+  (agencyStaff): Dictionary<PrimaryAgentVM> =>
+    createPrimaryAgencyStaffDictionary(agencyStaff)
 );

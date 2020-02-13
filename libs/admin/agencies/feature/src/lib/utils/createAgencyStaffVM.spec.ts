@@ -1,23 +1,25 @@
 import { approvedBrokerAgencyWithStaff } from '@hbx/utils/testing';
-
-import {
-  createBrokerAgencyStaffVM,
-  createPrimaryBrokerDictionary,
-  createAssociationProfileDictionaryFromAgency,
-  Dictionary,
-} from './createAgencyStaffVM';
-import {
-  AgencyStaffVM,
-  AgencyAssociation,
-  AgencyType,
-  AgencyRoleState,
-  AssociationProfile,
-} from '../state/agency-staff/agency-staff.models';
 import {
   Agency,
   BrokerAgencyStaff,
   PrimaryBrokerStaff,
 } from '@hbx/api-interfaces';
+
+import {
+  createBrokerAgencyStaffVM,
+  createPrimaryAgencyStaffDictionary,
+  createAssociationProfileDictionaryFromSingleAgency,
+  createBrokerAgencyPrimaryAgent,
+} from './createAgencyStaffVM';
+import {
+  AssociationProfile,
+  AgencyType,
+  AgencyAssociation,
+  AgencyRoleState,
+  AgencyStaffVM,
+  PrimaryAgentVM,
+} from '../shared/models';
+import { Dictionary } from '@ngrx/entity';
 
 let brokerAgency: Agency;
 let brokerStaff: BrokerAgencyStaff[];
@@ -35,16 +37,17 @@ describe('Broker Agency Staff VM creation', () => {
   it('should create a dictionary of primary agents', () => {
     const { broker_role, first_name, last_name } = primaryBroker;
 
-    const primaryBrokerDictionary = {
+    const primaryBrokerDictionary: Dictionary<PrimaryAgentVM> = {
       [broker_role.benefit_sponsors_broker_agency_profile_id]: {
         brokerRoleId: broker_role._id,
         agencyProfileId: broker_role.benefit_sponsors_broker_agency_profile_id,
         fullName: `${first_name} ${last_name}`,
+        npn: broker_role.npn,
       },
     };
 
     expect(
-      createPrimaryBrokerDictionary([...brokerStaff, primaryBroker])
+      createPrimaryAgencyStaffDictionary([...brokerStaff, primaryBroker])
     ).toEqual(primaryBrokerDictionary);
 
     expect(broker_role.benefit_sponsors_broker_agency_profile_id).toEqual(
@@ -58,7 +61,7 @@ describe('Broker Agency Staff VM creation', () => {
 
     const expectedDictionary: Dictionary<AssociationProfile> = {
       [profile._id]: {
-        associationId: profile._id,
+        agencyProfileId: profile._id,
         agencyType:
           profile._type ===
           'BenefitSponsors::Organizations::GeneralAgencyProfile'
@@ -69,21 +72,15 @@ describe('Broker Agency Staff VM creation', () => {
       },
     };
 
-    expect(createAssociationProfileDictionaryFromAgency(brokerAgency)).toEqual(
-      expectedDictionary
-    );
+    expect(
+      createAssociationProfileDictionaryFromSingleAgency(brokerAgency)
+    ).toEqual(expectedDictionary);
   });
 
   it('create broker agency staff VMs with agency associations', () => {
     const [targetStaff] = brokerStaff;
 
-    const {
-      first_name,
-      last_name,
-      broker_agency_staff_roles: roles,
-      _id,
-      hbx_id,
-    } = targetStaff;
+    const { first_name, last_name, _id, hbx_id } = targetStaff;
 
     const { _id: agencyId, legal_name, profiles } = brokerAgency;
     const [targetProfile] = profiles;
@@ -92,13 +89,14 @@ describe('Broker Agency Staff VM creation', () => {
       agencyId,
       agencyName: legal_name,
       agencyType: AgencyType.Broker,
-      associationId: targetProfile._id,
+      agencyProfileId: targetProfile._id,
       currentState: AgencyRoleState.Active,
       primaryAgent: {
         brokerRoleId: primaryBroker.broker_role._id,
         fullName: `${primaryBroker.first_name} ${primaryBroker.last_name}`,
         agencyProfileId:
           primaryBroker.broker_role.benefit_sponsors_broker_agency_profile_id,
+        npn: primaryBroker.broker_role.npn,
       },
     };
 
@@ -109,8 +107,32 @@ describe('Broker Agency Staff VM creation', () => {
       agencyAssociations: [agencyAssociation],
     };
 
+    const associationDictionary = createAssociationProfileDictionaryFromSingleAgency(
+      brokerAgency
+    );
+
+    const primaryAgentVM = createBrokerAgencyPrimaryAgent(primaryBroker);
+
     expect(
-      createBrokerAgencyStaffVM(targetStaff, [brokerAgency], [primaryBroker])
+      createBrokerAgencyStaffVM(
+        targetStaff,
+        associationDictionary,
+        primaryAgentVM
+      )
     ).toEqual(expectedBrokerVM);
   });
+});
+
+describe('Agency VM creation', () => {
+  beforeEach(() => {
+    const approvedAgencies = Array.from(
+      { length: 5 },
+      approvedBrokerAgencyWithStaff
+    );
+
+    const allAgencies = approvedAgencies
+      .map(agency => agency.brokerAgency)
+      .flat();
+  });
+  xit('should create a single agency VM', () => {});
 });
