@@ -74,7 +74,7 @@ describe('Broker Agency Staff VM creation', () => {
     );
   });
 
-  xit('create broker agency staff VMs with agency associations', () => {
+  it('create broker agency staff VMs with agency associations', () => {
     const [targetStaff] = brokerStaff;
 
     const {
@@ -95,7 +95,7 @@ describe('Broker Agency Staff VM creation', () => {
       associationId: targetProfile._id,
       currentState: AgencyRoleState.Active,
       primaryAgent: {
-        brokerRoleId: primaryBroker._id,
+        brokerRoleId: primaryBroker.broker_role._id,
         fullName: `${primaryBroker.first_name} ${primaryBroker.last_name}`,
         agencyProfileId:
           primaryBroker.broker_role.benefit_sponsors_broker_agency_profile_id,

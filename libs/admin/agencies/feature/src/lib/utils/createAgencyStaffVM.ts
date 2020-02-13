@@ -135,6 +135,7 @@ export function createBrokerAgencyPrimaryAgent(
   primaryStaff: PrimaryBrokerStaff
 ): Dictionary<PrimaryAgentVM> {
   const { first_name, last_name, broker_role } = primaryStaff;
+
   return {
     [broker_role.benefit_sponsors_broker_agency_profile_id]: {
       brokerRoleId: broker_role._id,
@@ -151,12 +152,14 @@ export function createGeneralAgencyAssociations(
 ): AgencyAssociation[] {
   const associations: AgencyAssociation[] = roles.map(
     (role: ApiGeneralAgencyStaffRole) => {
-      const { _id: associationId } = role;
+      const {
+        benefit_sponsors_general_agency_profile_id: agencyProfileId,
+      } = role;
 
       const associationProfile: AssociationProfile =
-        associationProfiles[associationId];
+        associationProfiles[agencyProfileId];
 
-      const primaryAgentVM: PrimaryAgentVM = primaryAgents[associationId];
+      const primaryAgentVM: PrimaryAgentVM = primaryAgents[agencyProfileId];
 
       const association: AgencyAssociation = {
         ...associationProfile,
@@ -178,12 +181,14 @@ export function createBrokerAgencyAssociations(
 ): AgencyAssociation[] {
   const associations: AgencyAssociation[] = roles.map(
     (role: ApiBrokerAgencyStaffRole) => {
-      const { _id: associationId } = role;
+      const {
+        benefit_sponsors_broker_agency_profile_id: agencyProfileId,
+      } = role;
 
       const associationProfile: AssociationProfile =
-        associationProfiles[associationId];
+        associationProfiles[agencyProfileId];
 
-      const primaryAgentVM: PrimaryAgentVM = primaryAgents[associationId];
+      const primaryAgentVM: PrimaryAgentVM = primaryAgents[agencyProfileId];
 
       const association: AgencyAssociation = {
         ...associationProfile,
