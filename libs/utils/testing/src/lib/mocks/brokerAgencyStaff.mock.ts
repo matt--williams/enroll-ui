@@ -14,18 +14,18 @@ import { mockBasePerson } from './person.mock';
 
 export function mockPrimaryBroker(
   agencyProfileId: string,
-  brokerRoleId: string
+  primaryBrokerRoleId: string
 ): PrimaryBrokerStaff {
   const primaryBroker: PrimaryBrokerStaff = {
     ...mockBasePerson(),
-    broker_role: mockPrimaryBrokerRole(agencyProfileId, brokerRoleId),
+    broker_role: mockPrimaryBrokerRole(agencyProfileId, primaryBrokerRoleId),
   };
 
   return primaryBroker;
 }
 
 function mockPrimaryBrokerRole(
-  associatedAgencyId: string,
+  agencyProfileId: string,
   primaryBrokerRoleId: string
 ): ApiPrimaryBrokerRole {
   const now = new Date();
@@ -47,7 +47,7 @@ function mockPrimaryBrokerRole(
     },
     provider_kind: ProviderKind.Broker,
     npn: faker.random.number({ min: 111111111, max: 999999999 }).toString(),
-    benefit_sponsors_broker_agency_profile_id: associatedAgencyId,
+    benefit_sponsors_broker_agency_profile_id: agencyProfileId,
     aasm_state: BrokerRoleState.Active,
     created_at: created.toString(),
     updated_at: updated.toString(),

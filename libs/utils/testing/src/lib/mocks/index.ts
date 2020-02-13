@@ -8,6 +8,6 @@ export * from './brokerAgencyStaff.mock';
 export * from './brokerAgency.mock';
 export * from './generalAgency.mock';
 export * from './generalAgencyStaff.mock';
-export * from './approvedBrokerAgencyWithStaff';
-export * from './approvedGeneralAgencyWithStaff';
+export * from './approvedBrokerAgencyWithStaff.mock';
+export * from './approvedGeneralAgencyWithStaff.mock';
 export * from './agencies.mock';

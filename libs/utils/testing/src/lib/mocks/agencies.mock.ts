@@ -8,11 +8,11 @@ import {
 import {
   approvedBrokerAgencyWithStaff,
   ApprovedBrokerAgencyWithStaff,
-} from './approvedBrokerAgencyWithStaff';
+} from './approvedBrokerAgencyWithStaff.mock';
 import {
   approvedGeneralAgencyWithStaff,
   ApprovedGeneralAgencyWithStaff,
-} from './approvedGeneralAgencyWithStaff';
+} from './approvedGeneralAgencyWithStaff.mock';
 
 export interface FullAgencies {
   agencies: Agency[];

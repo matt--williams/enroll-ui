@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
 
 @Component({
   templateUrl: './agency-staff.component.html',
@@ -7,7 +6,15 @@ import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgencyStaffComponent implements OnInit {
-  constructor(public agencyStaffFacade: AgencyStaffFacade) {}
+  // agencyStaffVM$: Observable<AgencyStaffVM[]> = combineLatest([
+  //   this.agenciesFacade.allAgencies$,
+  //   this.agencyStaffFacade.nonPrimaryAgencyStaff$,
+  //   this.agencyStaffFacade,
+  // ]);
+
+  constructor() // private agencyStaffFacade: AgencyStaffFacade,
+  // private agenciesFacade: AgenciesFacade
+  {}
 
   ngOnInit(): void {}
 }

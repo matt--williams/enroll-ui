@@ -16,7 +16,6 @@ export class AgencyStaffEffects {
         _action: ReturnType<typeof AgencyStaffActions.loadAgencyStaff>,
         _state: fromAgencyStaff.AgencyStaffPartialState
       ) => {
-        console.log('EFFECT RUNNING');
         return this.agenciesApiService.getAllAgencyStaff().pipe(
           tap(agencyStaff => console.log({ agencyStaff })),
           map(agencyStaff =>

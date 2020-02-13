@@ -12,13 +12,13 @@ import {
   AgencyRoleState,
   StaffRole,
   StateTransitionHistory,
-  AgencyStaffVM,
+  AgencyStaff,
 } from '../state/agency-staff/agency-staff.models';
 import { isGeneralAgencyStaff, isPrimaryBroker } from './checkStaffType';
 
 export function convertStaff(
   agencyStaff: BrokerAgencyStaff | PrimaryBrokerStaff | GeneralAgencyStaff
-): AgencyStaffVM {
+): AgencyStaff {
   const {
     broker_role,
     broker_agency_staff_roles,
@@ -26,7 +26,7 @@ export function convertStaff(
     ...basePerson
   } = agencyStaff;
 
-  const brokerStaffEntity: AgencyStaffVM = {
+  const brokerStaffEntity: AgencyStaff = {
     ...basePerson,
     staffRoles: staffRoles(agencyStaff),
   };
@@ -77,7 +77,7 @@ function convertStateTransitions(
   });
 }
 
-function convertRoleState(
+export function convertRoleState(
   roleState:
     | BrokerRoleState
     | BrokerAgencyStaffRoleState

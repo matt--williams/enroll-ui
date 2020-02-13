@@ -26,10 +26,11 @@ export interface ApprovedBrokerAgencyWithStaff {
 export function approvedBrokerAgencyWithStaff(
   options: MockBrokerAgencyOptions = { totalStaff: DEFAULT_STAFF }
 ): ApprovedBrokerAgencyWithStaff {
-  const primaryBrokerRoleId = faker.random.uuid();
-  const agencyProfileId = faker.random.uuid();
+  const primaryBrokerRoleId = 'primaryBrokerRoleId' || faker.random.uuid();
+  const agencyProfileId = 'agencyProfileId' || faker.random.uuid();
 
   const primaryBroker = mockPrimaryBroker(agencyProfileId, primaryBrokerRoleId);
+
   const brokerAgency = mockBrokerAgency(agencyProfileId, primaryBrokerRoleId);
 
   // Creates an array that is totalStaff long and fills it with mock staff
