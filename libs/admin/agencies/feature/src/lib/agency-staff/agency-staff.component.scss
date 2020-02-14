@@ -39,6 +39,7 @@
   --state-text-color: var(--green-090);
 
   font-size: var(--s-1);
+  line-height: 1;
   color: var(--state-text-color);
   border: 1px solid var(--state-border-color);
   background-color: var(--state-background-color);
@@ -59,8 +60,9 @@
 
 .hbx-button {
   --content-height: var(--s-1);
-  --content-color: var(neutral-070);
+  --content-color: var(--neutral-070);
 
+  line-height: 1;
   -webkit-appearance: none;
   padding: var(--s-4) var(--s-2);
   text-transform: uppercase;
