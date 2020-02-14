@@ -1,2 +1,19 @@
-<p>agencies-feature-shell works!</p>
-<router-outlet></router-outlet>
+<div class="page-container">
+  <ul class="page-navigation nav-container">
+    <li routerLinkActive="active-link" class="page-navigation-list-item">
+      <a class="hbx-link" routerLink="applications">Applications</a>
+    </li>
+    <li routerLinkActive="active-link" class="page-navigation-list-item">
+      <a class="hbx-link" routerLink="broker-agencies">Broker Agencies</a>
+    </li>
+    <li routerLinkActive="active-link" class="page-navigation-list-item">
+      <a class="hbx-link" routerLink="general-agencies">General Agencies</a>
+    </li>
+    <li routerLinkActive="active-link" class="page-navigation-list-item">
+      <a class="hbx-link" routerLink="agency-staff">Agency Staff</a>
+    </li>
+  </ul>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

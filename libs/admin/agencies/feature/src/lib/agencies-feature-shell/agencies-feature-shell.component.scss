@@ -1,0 +1,19 @@
+.page-container {
+  padding: var(--s1) 0;
+  display: grid;
+  grid-template-columns: minmax(250px, min-content) 1fr;
+}
+
+main {
+  column-span: 1/2;
+}
+
+.page-navigation-list-item {
+  padding: var(--s-3) 0 var(--s-3) var(--s0);
+  border-left: 4px solid transparent;
+}
+
+.page-navigation-list-item.active-link {
+  border-left-color: var(--blue-070);
+  font-weight: 700;
+}

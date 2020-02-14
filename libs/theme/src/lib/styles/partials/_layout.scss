@@ -5,3 +5,7 @@
 // [class$='-container'] {
 //   margin: 0 auto;
 // }
+[class*='-container'] {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}

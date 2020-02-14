@@ -8,6 +8,7 @@ import * as AgenciesActions from '../state/agencies/agencies.actions';
 @Component({
   selector: 'hbx-agencies-feature-shell',
   templateUrl: './agencies-feature-shell.component.html',
+  styleUrls: ['./agencies-feature-shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgenciesFeatureShellComponent implements OnInit {

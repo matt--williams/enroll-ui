@@ -1,0 +1,41 @@
+header {
+  background-color: #fff;
+  border-bottom: 10px solid var(--blue-070);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: var(--s3);
+}
+
+nav {
+  background-color: var(--neutral-010);
+}
+
+.app-navigation {
+  margin-left: calc(var(--(s0) * -1));
+  display: flex;
+}
+
+.app-navigation-list-item {
+  padding: 0 var(--s0);
+  height: var(--s3);
+}
+
+.app-navigation-list-item.active-link {
+  border-bottom: 4px solid var(--blue-070);
+}
+
+.hbx-link {
+  font-weight: 700;
+  line-height: var(--s3);
+
+  &:hover:not(:focus) {
+    text-decoration: underline;
+  }
+}
+
+.main-container {
+  padding-top: var(--s1);
+}
