@@ -3,4 +3,49 @@
   background-color: var(--neutral-010);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 1rem;
+  padding: var(--s0);
+  display: grid;
+  grid-template-columns: 25ch 1fr;
+}
+
+.staff-detail-container .staff-name {
+  margin-bottom: 0;
+}
+
+.hbx-id {
+  color: var(--neutral-070);
+  font-size: var(--s-1);
+  line-height: var(--s-1);
+}
+
+.agency-associations {
+  display: flex;
+}
+
+.agency-association-card {
+  border-radius: 2px;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  padding: var(--s-1);
+}
+
+.primary-agent {
+  color: var(--neutral-070);
+}
+
+.association-state {
+  --state-background-color: var(--green-010);
+  --state-border-color: var(--green-030);
+  --state-text-color: var(--green-090);
+
+  font-size: var(--s-2);
+  color: var(--state-text-color);
+  border: 1px solid var(--state-border-color);
+  background-color: var(--state-background-color);
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--s-4) var(--s-2);
+  border-radius: var(--s1);
 }

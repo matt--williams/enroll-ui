@@ -5,7 +5,12 @@
 // [class$='-container'] {
 //   margin: 0 auto;
 // }
-[class*='-container'] {
+.app-container,
+.page-container,
+.content-container,
+.nav-container,
+.header-container,
+.footer-container {
   max-width: var(--content-width);
   margin: 0 auto;
 }
