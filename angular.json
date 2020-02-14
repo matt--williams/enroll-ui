@@ -28,6 +28,11 @@
                 "glob": "**/*",
                 "input": "libs/theme/src/lib/assets/fonts",
                 "output": "/assets/fonts"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/theme/src/lib/assets/icons",
+                "output": "/assets/icons"
               }
             ],
             "styles": [

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { AgenciesApiService } from '@hbx/admin/agencies/data-access';
 
@@ -16,12 +16,13 @@ export class AgencyStaffEffects {
         _action: ReturnType<typeof AgencyStaffActions.loadAgencyStaff>,
         _state: fromAgencyStaff.AgencyStaffPartialState
       ) => {
-        return this.agenciesApiService.getAllAgencyStaff().pipe(
-          tap(agencyStaff => console.log({ agencyStaff })),
-          map(agencyStaff =>
-            AgencyStaffActions.loadAgencyStaffSuccess({ agencyStaff })
-          )
-        );
+        return this.agenciesApiService
+          .getAllAgencyStaff()
+          .pipe(
+            map(agencyStaff =>
+              AgencyStaffActions.loadAgencyStaffSuccess({ agencyStaff })
+            )
+          );
       },
       onError: (
         _action: ReturnType<typeof AgencyStaffActions.loadAgencyStaff>,

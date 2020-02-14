@@ -22,8 +22,16 @@
       <div class="hbx-body-s primary-agent">
         {{ association.primaryAgent.fullName }}
       </div>
-      <div class="association-state">
-        {{ association.currentState }}
+      <div class="state-and-action">
+        <div class="association-state">
+          {{ association.currentState }}
+        </div>
+        <button type="button" class="hbx-button terminate-action">
+          <span>Terminate</span>
+          <svg class="svg-icon" viewBox="0 0 32 32">
+            <use href="assets/icons/hbx-icons.svg#unlink"></use>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
