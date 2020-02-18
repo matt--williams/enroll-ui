@@ -6,12 +6,6 @@ import {
   ApiGeneralAgencyStaffRole,
   ApiBrokerAgencyStaffRole,
 } from '@hbx/api-interfaces';
-
-import {
-  isPrimaryGeneralAgencyStaff,
-  isGeneralAgencyStaff,
-  isPrimaryBroker,
-} from './checkStaffType';
 import {
   PrimaryAgentVM,
   AssociationProfile,
@@ -19,7 +13,13 @@ import {
   AgencyStaffVM,
   AgencyAssociation,
   Dictionary,
-} from '../shared/models';
+} from '@hbx/admin/shared/view-models';
+
+import {
+  isPrimaryGeneralAgencyStaff,
+  isGeneralAgencyStaff,
+  isPrimaryBroker,
+} from './checkStaffType';
 import { convertRoleState } from './convertStaff';
 
 export function createPrimaryAgencyStaffDictionary(

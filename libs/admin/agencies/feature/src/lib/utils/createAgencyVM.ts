@@ -5,18 +5,15 @@ import {
   GeneralAgencyStaff,
   BrokerAgencyStaff,
 } from '@hbx/api-interfaces';
-
 import {
   AssociationProfile,
   AgencyType,
   AgencyVM,
   Dictionary,
   PrimaryAgentVM,
-} from '../shared/models';
-import {
-  createBrokerAgencyPrimaryAgent,
-  createPrimaryAgencyStaffDictionary,
-} from './createAgencyStaffVM';
+} from '@hbx/admin/shared/view-models';
+
+import { createPrimaryAgencyStaffDictionary } from './createAgencyStaffVM';
 
 export function createAssociationProfilesFromSingleAgency(
   agency: Agency

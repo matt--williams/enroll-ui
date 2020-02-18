@@ -3,11 +3,12 @@ import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import {
-  AgencyVM,
   AgencyStaffVM,
-  PrimaryAgentVM,
   Dictionary,
-} from '../shared/models';
+  AgencyVM,
+  PrimaryAgentVM,
+} from '@hbx/admin/shared/view-models';
+
 import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
 import { AgenciesFacade } from '../state/agencies/agencies.facade';
 import {

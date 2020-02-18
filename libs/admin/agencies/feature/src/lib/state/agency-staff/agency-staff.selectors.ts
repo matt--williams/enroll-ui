@@ -5,6 +5,7 @@ import {
   GeneralAgencyStaff,
   PrimaryBrokerStaff,
 } from '@hbx/api-interfaces';
+import { Dictionary, PrimaryAgentVM } from '@hbx/admin/shared/view-models';
 
 import {
   AGENCYSTAFF_FEATURE_KEY,
@@ -20,7 +21,6 @@ import {
   isPrimaryGeneralAgencyStaff,
 } from '../../utils/checkStaffType';
 import { createPrimaryAgencyStaffDictionary } from '../../utils/createAgencyStaffVM';
-import { Dictionary, PrimaryAgentVM } from '../../shared/models';
 
 // Lookup the 'AgencyStaff' feature state managed by NgRx
 export const getAgencyStaffState = createFeatureSelector<

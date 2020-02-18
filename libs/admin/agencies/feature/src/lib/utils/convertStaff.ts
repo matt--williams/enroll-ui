@@ -7,6 +7,7 @@ import {
   BrokerAgencyStaffRoleState,
   GeneralAgencyStaffRoleState,
 } from '@hbx/api-interfaces';
+import { AgencyRoleState } from '@hbx/admin/shared/view-models';
 
 import {
   StaffRole,
@@ -14,7 +15,6 @@ import {
   AgencyStaff,
 } from '../state/agency-staff/agency-staff.models';
 import { isGeneralAgencyStaff, isPrimaryBroker } from './checkStaffType';
-import { AgencyRoleState } from '../shared/models';
 
 export function convertStaff(
   agencyStaff: BrokerAgencyStaff | PrimaryBrokerStaff | GeneralAgencyStaff

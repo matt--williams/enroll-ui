@@ -1,5 +1,3 @@
-// Eventually use this file as a View Model entity interface
-
 import {
   ApiBasePerson,
   AgencyStaffRole,
@@ -7,7 +5,7 @@ import {
   BrokerAgencyStaff,
   GeneralAgencyStaff,
 } from '@hbx/api-interfaces';
-import { AgencyRoleState } from '../../shared/models';
+import { AgencyRoleState } from '@hbx/admin/shared/view-models';
 
 export interface AgencyStaff extends ApiBasePerson {
   staffRoles: StaffRole[];
