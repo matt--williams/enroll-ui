@@ -7,19 +7,18 @@ import {
   Dictionary,
   PrimaryAgentVM,
 } from '@hbx/admin/shared/view-models';
-
-import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
-import { AgenciesFacade } from '../state/agencies/agencies.facade';
 import {
   Agency,
   GeneralAgencyStaff,
   BrokerAgencyStaff,
 } from '@hbx/api-interfaces';
+
+import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
+import { AgenciesFacade } from '../state/agencies/agencies.facade';
 import { createStaffVMs } from '../utils/createAgencyStaffVM';
 
 @Component({
   templateUrl: './agency-staff.component.html',
-  styleUrls: ['./agency-staff.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgencyStaffComponent implements OnInit {
