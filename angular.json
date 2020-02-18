@@ -498,6 +498,41 @@
           "styleext": "scss"
         }
       }
+    },
+    "admin-shared-ui-components": {
+      "projectType": "library",
+      "root": "libs/admin/shared/ui-components",
+      "sourceRoot": "libs/admin/shared/ui-components/src",
+      "prefix": "hbx",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/admin/shared/ui-components/tsconfig.lib.json",
+              "libs/admin/shared/ui-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/admin/shared/ui-components/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/admin/shared/ui-components/jest.config.js",
+            "tsConfig": "libs/admin/shared/ui-components/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/admin/shared/ui-components/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

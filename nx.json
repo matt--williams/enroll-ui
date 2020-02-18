@@ -47,6 +47,9 @@
     },
     "utils-testing": {
       "tags": ["type:util", "scope:shared"]
+    },
+    "admin-shared-ui-components": {
+      "tags": ["type:ui", "scope:admin"]
     }
   }
 }
