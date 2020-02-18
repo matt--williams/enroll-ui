@@ -93,10 +93,10 @@ export const getBrokerAgencyStaff = createSelector(
 export const getAllNonPrimaryAgencyStaff = createSelector(
   getBrokerAgencyStaff,
   getNonPrimaryGeneralAgencyStaff,
-  (brokerAgencyStaff, generalAgencyStaff) => [
-    ...brokerAgencyStaff,
-    ...generalAgencyStaff,
-  ]
+  (brokerAgencyStaff, generalAgencyStaff) =>
+    [...brokerAgencyStaff, ...generalAgencyStaff].sort((a, b) =>
+      a.last_name.localeCompare(b.last_name)
+    )
 );
 
 // Putting this in entity form allows us to easily select a broker

@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AgencyStaffUiModule } from '@hbx/admin/shared/ui-components';
+
 import { AgencyStaffComponent } from './agency-staff.component';
 
 const routes: Routes = [{ path: '', component: AgencyStaffComponent }];
 
 @NgModule({
   declarations: [AgencyStaffComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), AgencyStaffUiModule],
 })
 export class AgencyStaffModule {}

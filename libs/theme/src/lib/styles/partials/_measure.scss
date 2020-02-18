@@ -2,17 +2,10 @@
   --measure: 60ch;
 }
 
-* {
+h1,
+h2,
+h3,
+h4,
+p {
   max-width: var(--measure);
-}
-
-html,
-body,
-div,
-header,
-nav,
-main,
-footer,
-ul {
-  max-width: none;
 }

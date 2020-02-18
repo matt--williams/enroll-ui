@@ -1,0 +1,23 @@
+:host {
+  display: grid;
+  grid-template-columns: 25ch 1fr;
+  border-radius: 2px;
+  background-color: var(--neutral-010);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
+  padding: var(--s0);
+}
+
+.staff-detail-container .staff-name {
+  margin-bottom: 0;
+}
+
+.hbx-id {
+  color: var(--neutral-070);
+  font-size: var(--s-1);
+  line-height: var(--s-1);
+}
+
+.agency-associations {
+  display: flex;
+}

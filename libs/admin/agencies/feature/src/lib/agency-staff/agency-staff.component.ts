@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import {
   AgencyStaffVM,
   Dictionary,
-  AgencyVM,
   PrimaryAgentVM,
 } from '@hbx/admin/shared/view-models';
 
@@ -16,8 +15,6 @@ import {
   GeneralAgencyStaff,
   BrokerAgencyStaff,
 } from '@hbx/api-interfaces';
-import { AgencyStaffEntity } from '../state/agency-staff/agency-staff.models';
-import { createAgencyVMs } from '../utils/createAgencyVM';
 import { createStaffVMs } from '../utils/createAgencyStaffVM';
 
 @Component({
@@ -40,14 +37,14 @@ export class AgencyStaffComponent implements OnInit {
     )
   );
 
-  agencyVMs$: Observable<AgencyVM[]> = combineLatest([
-    this.agenciesFacade.allAgencies$,
-    this.agencyStaffFacade.allAgencyStaff$,
-  ]).pipe(
-    map(([agencies, staff]: [Agency[], AgencyStaffEntity[]]) =>
-      createAgencyVMs(agencies, staff)
-    )
-  );
+  // agencyVMs$: Observable<AgencyVM[]> = combineLatest([
+  //   this.agenciesFacade.allAgencies$,
+  //   this.agencyStaffFacade.allAgencyStaff$,
+  // ]).pipe(
+  //   map(([agencies, staff]: [Agency[], AgencyStaffEntity[]]) =>
+  //     createAgencyVMs(agencies, staff)
+  //   )
+  // );
 
   constructor(
     private agencyStaffFacade: AgencyStaffFacade,

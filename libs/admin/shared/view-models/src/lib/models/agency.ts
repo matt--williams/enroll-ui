@@ -7,7 +7,7 @@ export interface AssociationProfile {
   agencyName: string; // from agency
 }
 
-export const enum AgencyType {
+export enum AgencyType {
   Broker = 'Broker',
   General = 'General',
 }

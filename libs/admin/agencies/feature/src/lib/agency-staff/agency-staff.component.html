@@ -1,40 +1,6 @@
 <h1 class="hbx-heading-xl">Agency Staff</h1>
 
-<!-- <ng-container *ngFor="let agency of agencyVMs$ | async">
-  <h2>{{ agency.agencyName }}</h2>
-  <div>{{ agency.primaryAgent.fullName }}</div>
-  <div>{{ agency.primaryAgent.npn }}</div>
-</ng-container> -->
-
-<div class="staff-container" *ngFor="let staff of agencyStaffVM$ | async">
-  <div class="staff-detail-container">
-    <h2 class="hbx-heading-s staff-name">{{ staff.fullName }}</h2>
-    <span class="hbx-id">{{ staff.hbxId }}</span>
-  </div>
-  <div class="agency-associations">
-    <div
-      class="agency-association-card"
-      *ngFor="let association of staff.agencyAssociations"
-    >
-      <div class="hbx-body agency-name">
-        {{ association.agencyName }}
-      </div>
-      <div class="hbx-body-s primary-agent">
-        {{ association.primaryAgent.fullName }}
-      </div>
-      <div class="state-and-action">
-        <div class="association-state">
-          {{ association.currentState }}
-        </div>
-        <button type="button" class="hbx-button terminate-action">
-          <span>Terminate</span>
-          <svg class="svg-icon" viewBox="0 0 32 32">
-            <use href="assets/icons/hbx-icons.svg#unlink"></use>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hbx-agency-staff></hbx-agency-staff>
+<hbx-staff-container
+  *ngFor="let staff of agencyStaffVM$ | async"
+  [staff]="staff"
+></hbx-staff-container>
