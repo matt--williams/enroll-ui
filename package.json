@@ -10,7 +10,7 @@
     "build": "ng build",
     "build:admin": "ng build --project=admin --configuration=production",
     "test": "ng test",
-    "lint": "nx workspace-lint && ng lint",
+    "lint": "npx stylelint \"**/*.scss\" && nx workspace-lint && ng lint",
     "e2e": "ng e2e",
     "e2e:admin": "ng e2e --project=admin-e2e -- --watch",
     "e2e:admin:ci": "ng e2e --project=admin-e2e --headless",
@@ -31,6 +31,9 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "private": true,
   "dependencies": {
@@ -67,14 +70,14 @@
     "@types/uuid": "^3.4.7",
     "codelyzer": "^5.1.2",
     "core-js": "^3.6.4",
-    "cypress": "^4.0.0",
+    "cypress": "^4.0.2",
     "dotenv": "6.2.0",
     "eslint": "6.1.0",
     "faker": "^4.1.0",
     "jest": "24.1.0",
     "jest-preset-angular": "8.0.0",
     "prettier": "^1.19.1",
-    "stylelint": "^13.1.0",
+    "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",

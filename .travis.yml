@@ -6,5 +6,6 @@ before_script:
 script:
   - npm run test
   - npm run e2e:admin:ci
+  - npm run lint
 after_script:
   - ./post_build_results
