@@ -4,13 +4,6 @@ import {
   BrokerAgencyStaff,
   PrimaryBrokerStaff,
 } from '@hbx/api-interfaces';
-
-import {
-  createBrokerAgencyStaffVM,
-  createPrimaryAgencyStaffDictionary,
-  createAssociationProfileDictionaryFromSingleAgency,
-  createBrokerAgencyPrimaryAgent,
-} from './createAgencyStaffVM';
 import {
   AssociationProfile,
   AgencyType,
@@ -18,7 +11,14 @@ import {
   AgencyRoleState,
   AgencyStaffVM,
   PrimaryAgentVM,
-} from '../shared/models';
+} from '@hbx/admin/shared/view-models';
+
+import {
+  createBrokerAgencyStaffVM,
+  createPrimaryAgencyStaffDictionary,
+  createAssociationProfileDictionaryFromSingleAgency,
+  createBrokerAgencyPrimaryAgent,
+} from './createAgencyStaffVM';
 import { Dictionary } from '@ngrx/entity';
 
 let brokerAgency: Agency;
