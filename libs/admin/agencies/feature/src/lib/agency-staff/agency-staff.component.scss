@@ -1,0 +1,25 @@
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--s0);
+}
+
+.search-box {
+  border: 1px solid var(--neutral-040);
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  padding: var(--s-2);
+}
+
+.search-label {
+  color: var(--neutral-070);
+  font-weight: 600;
+  background-color: var(--neutral-010);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border: 1px solid var(--neutral-040);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--s-2);
+  margin-left: -1px;
+}

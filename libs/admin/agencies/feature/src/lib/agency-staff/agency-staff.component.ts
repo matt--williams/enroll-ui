@@ -1,6 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Observable, combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {
+  map,
+  startWith,
+  distinctUntilChanged,
+  debounceTime,
+} from 'rxjs/operators';
 
 import {
   AgencyStaffVM,
@@ -15,25 +21,41 @@ import {
 
 import { AgencyStaffFacade } from '../state/agency-staff/agency-staff.facade';
 import { AgenciesFacade } from '../state/agencies/agencies.facade';
-import { createStaffVMs } from '../utils/createAgencyStaffVM';
+import { createStaffVMs, searchAgencyStaff } from '../utils';
 
 @Component({
   templateUrl: './agency-staff.component.html',
+  styleUrls: ['./agency-staff.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AgencyStaffComponent implements OnInit {
+  globalSearch: FormControl = new FormControl();
+
+  globalSearch$: Observable<string> = this.globalSearch.valueChanges.pipe(
+    debounceTime(200),
+    map((query: string) => query.trim().toLowerCase())
+  );
+
   agencyStaffVM$: Observable<AgencyStaffVM[]> = combineLatest([
+    this.globalSearch$.pipe(startWith('')),
     this.agenciesFacade.allAgencies$,
     this.agencyStaffFacade.primaryAgencyStaffEntities$,
     this.agencyStaffFacade.nonPrimaryAgencyStaff$,
   ]).pipe(
+    distinctUntilChanged(),
     map(
-      ([agencies, primaryStaff, staff]: [
+      ([globalSearch, agencies, primaryStaff, staff]: [
+        string,
         Agency[],
         Dictionary<PrimaryAgentVM>,
         Array<GeneralAgencyStaff | BrokerAgencyStaff>
-      ]) => createStaffVMs(agencies, primaryStaff, staff)
-    )
+      ]) => {
+        return [globalSearch, createStaffVMs(agencies, primaryStaff, staff)];
+      }
+    ),
+    map(([searchQuery, agencyStaffVMs]: [string, AgencyStaffVM[]]) => {
+      return searchAgencyStaff(searchQuery, agencyStaffVMs);
+    })
   );
 
   // agencyVMs$: Observable<AgencyVM[]> = combineLatest([
@@ -51,4 +73,8 @@ export class AgencyStaffComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  logChange(event: any): void {
+    console.log(event);
+  }
 }
