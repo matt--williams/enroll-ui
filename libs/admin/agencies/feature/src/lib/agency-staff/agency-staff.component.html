@@ -11,7 +11,21 @@
     >Search <span class="visually-hidden">for Agents or Agencies</span></label
   >
 </div>
-<hbx-staff-container
-  *ngFor="let staff of agencyStaffVM$ | async"
-  [staff]="staff"
-></hbx-staff-container>
+
+<ng-container *ngIf="agencyStaffVM$ | async as agencyStaff">
+  <ng-container *ngIf="agencyStaff && agencyStaff.length > 0; else noResults"
+    ><hbx-staff-container
+      *ngFor="let staff of agencyStaff"
+      [staff]="staff"
+    ></hbx-staff-container
+  ></ng-container>
+</ng-container>
+
+<ng-template #noResults
+  ><div class="no-results-container">
+    <h2 class="hbx-heading-small">No results</h2>
+    <p>
+      You can search by Staff Name, HBX ID, Agency Name, or Writing Agent
+    </p>
+  </div>
+</ng-template>

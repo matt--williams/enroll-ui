@@ -3,4 +3,4 @@ export * from './checkStaffType';
 export * from './convertStaff';
 export * from './createAgencyStaffVM';
 export * from './createAgencyVM';
-export * from './globalSearch';
+export * from './searchAgencyStaff';

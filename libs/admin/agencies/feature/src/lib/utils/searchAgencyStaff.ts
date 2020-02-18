@@ -25,6 +25,10 @@ function searchAgentName(query: string, agencyStaff: AgencyStaffVM): boolean {
   return agencyStaff.fullName.toLowerCase().includes(query);
 }
 
+function searchHBXId(query: string, agencyStaff: AgencyStaffVM): boolean {
+  return agencyStaff.hbxId.toLowerCase().includes(query);
+}
+
 function searchAgencyNames(query: string, agencyStaff: AgencyStaffVM): boolean {
   const associations: AgencyAssociation[] = agencyStaff.agencyAssociations;
 
@@ -33,10 +37,6 @@ function searchAgencyNames(query: string, agencyStaff: AgencyStaffVM): boolean {
       agency.agencyName.toLowerCase().includes(query)
     ).length > 0
   );
-}
-
-function searchHBXId(query: string, agencyStaff: AgencyStaffVM): boolean {
-  return agencyStaff.hbxId.toLowerCase().includes(query);
 }
 
 function searchPrimaryAgent(
