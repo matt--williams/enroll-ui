@@ -33,7 +33,7 @@ export class AgenciesApiService {
   > {
     return this.http.get<
       Array<GeneralAgencyStaff | PrimaryBrokerStaff | BrokerAgencyStaff>
-    >(`${this.api}/agencies/agency-staff`);
+    >(`${this.api}/brokers/broker_staff`);
     // .pipe(tap(console.log));
   }
 }
