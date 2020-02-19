@@ -3,7 +3,7 @@
 ## Proposed Models
 
 ```ts
-export interface AgencyStaff {
+interface AgencyStaff {
   // Likely needed to update demographic information
   personId: string;
 
@@ -17,7 +17,7 @@ export interface AgencyStaff {
   dateOfBirth: string; // will be converted to date object
 }
 
-export interface AgentRole extends Agency {
+interface AgentRole extends Agency {
   /**
    * ### Needed to terminate the link between agent and agency
    *
@@ -46,20 +46,20 @@ export interface AgentRole extends Agency {
   roleChangeHistory: ChangeHistory<AgencyRoleState>[];
 }
 
-export enum AgencyPosition {
+enum AgencyPosition {
   Primary = 'Primary',
   Writing = 'Writing',
   Staff = 'Staff',
 }
 
-export const enum AgencyRoleState {
+enum AgencyRoleState {
   Pending = 'Pending',
   Active = 'Active',
   Terminated = 'Terminated',
   Other = 'Other',
 }
 
-export interface ChangeHistory<T> {
+interface ChangeHistory<T> {
   changedFrom: T;
   changedTo: T;
   changedAt: string; // will be converted to Date object
@@ -72,7 +72,7 @@ export interface ChangeHistory<T> {
  *
  * Is there a more generic name? This may influence the `AgencyPosition` enum
  */
-export interface WritingAgent {
+interface WritingAgent {
   /**
    * `primary_broker_role_id` on a Broker Agency profile
    *
@@ -85,13 +85,13 @@ export interface WritingAgent {
   npn: string; // what is the npn?
 }
 
-export interface Agency {
+interface Agency {
   legalName: string;
   agencyType: AgencyType;
   writingAgent: WritingAgent;
 }
 
-export enum AgencyType {
+enum AgencyType {
   Broker = 'Broker',
   General = 'General',
 }
@@ -100,16 +100,7 @@ export enum AgencyType {
 ### API Service
 
 ```ts
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-import { Agency } from '@hbx/api-interfaces';
-
-@Injectable({
-  providedIn: 'root',
-})
-export class AgenciesApiService {
+class AgenciesApiService {
   private api = 'api/v1';
 
   constructor(private http: HttpClient) {}
