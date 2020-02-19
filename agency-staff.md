@@ -48,7 +48,6 @@ interface AgentRole extends Agency {
 
 enum AgencyPosition {
   Primary = 'Primary',
-  Writing = 'Writing',
   Staff = 'Staff',
 }
 
@@ -72,7 +71,7 @@ interface ChangeHistory<T> {
  *
  * Is there a more generic name? This may influence the `AgencyPosition` enum
  */
-interface WritingAgent {
+interface PrimaryAgent {
   /**
    * `primary_broker_role_id` on a Broker Agency profile
    *
@@ -88,7 +87,7 @@ interface WritingAgent {
 interface Agency {
   legalName: string;
   agencyType: AgencyType;
-  writingAgent: WritingAgent;
+  primaryAgent: PrimaryAgent;
 }
 
 enum AgencyType {
