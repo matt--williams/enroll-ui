@@ -12,6 +12,18 @@
   >
 </div>
 
+<!-- <div *ngFor="let agency of agencyVMs$ | async">
+  <h2 class="hbx-heading-small">
+    {{ agency.agencyName }} - {{ agency.agencyType }}
+  </h2>
+  <div>Primary Agent: {{ agency.primaryAgent.fullName }}</div>
+
+  <pre
+    >{{ agency | json }}
+  </pre>
+  <hr />
+</div> -->
+
 <ng-container *ngIf="agencyStaffVM$ | async as agencyStaff">
   <ng-container *ngIf="agencyStaff && agencyStaff.length > 0; else noResults"
     ><hbx-staff-container

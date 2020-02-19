@@ -7,7 +7,7 @@ describe('Agency Staff', () => {
   beforeEach(() => {
     cy.server();
     cy.route('**/agencies', agencies).as('agencies');
-    cy.route('**/agencies/agency-staff', agencyStaff).as('agencyStaff');
+    cy.route('**/agencies/agency_staff', agencyStaff).as('agencyStaff');
     cy.visit('/');
   });
 
