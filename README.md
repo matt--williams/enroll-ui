@@ -1,4 +1,5 @@
 # Hbx
+[![Build Status](https://travis-ci.com/dchbx/enroll-ui.svg?branch=master)](https://travis-ci.com/dchbx/enroll-ui)
 
 This project was generated using [Nx](https://nx.dev).
 
