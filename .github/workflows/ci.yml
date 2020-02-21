@@ -1,10 +1,8 @@
 name: Node CI
-​
 on:
   push:
     branches:
       - master
-​
 jobs:
   lint:
     name: Lint
@@ -30,7 +28,6 @@ jobs:
         run: npm run affected:lint
         env:
           CI: true
-​
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -56,7 +53,6 @@ jobs:
         run: npm run affected:test
         env:
           CI: true
-​
   build:
     name: Build
     runs-on: ubuntu-latest
